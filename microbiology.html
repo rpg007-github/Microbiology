@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microbiology Study Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#0d7c4a;--accent-light:#e6f5ee;--accent-dark:#095c36;--bg:#fafaf7;--card-bg:#fff;--text:#1a1a1a;--text-muted:#5a5a5a;--border:#e0e0d8;--warn-bg:#fef9e7;--warn-border:#d4a017;--key-bg:#e6f5ee;--key-border:#0d7c4a;--example-bg:#fff8ed;--example-border:#d4860b;--shadow:0 2px 8px rgba(0,0,0,0.06);--shadow-hover:0 4px 16px rgba(0,0,0,0.10)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:17px}
+.hero{background:linear-gradient(135deg,#064d2e 0%,#0d7c4a 40%,#13a864 100%);color:#fff;padding:60px 20px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='4' fill='rgba(255,255,255,0.05)'/%3E%3Ccircle cx='10' cy='10' r='2' fill='rgba(255,255,255,0.04)'/%3E%3Ccircle cx='50' cy='50' r='3' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E")}
+.hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;margin-bottom:10px;position:relative}
+.hero .subtitle{font-size:1.15rem;opacity:0.9;position:relative}
+.hero .badge{display:inline-block;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);padding:4px 16px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;margin-top:14px;position:relative}
+.container{max-width:960px;margin:0 auto;padding:0 20px}
+.toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:28px 32px;margin:30px auto;max-width:960px;box-shadow:var(--shadow)}
+.toc h2{font-family:'Crimson Pro',serif;font-size:1.4rem;color:var(--accent);margin-bottom:14px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 24px}
+.toc a{color:var(--text);text-decoration:none;padding:4px 0;display:block;transition:color 0.2s}
+.toc a:hover{color:var(--accent)}
+.toc a .sec-num{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--accent);margin-right:8px}
+.section{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:32px;margin:24px auto;max-width:960px;box-shadow:var(--shadow);transition:box-shadow 0.3s}
+.section:hover{box-shadow:var(--shadow-hover)}
+.section h2{font-family:'Crimson Pro',serif;font-size:1.6rem;color:var(--accent-dark);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--accent-light)}
+.section h2 .sec-num{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);margin-right:10px}
+.section h3{font-family:'Crimson Pro',serif;font-size:1.2rem;color:var(--text);margin:20px 0 8px}
+.section p{margin-bottom:12px}
+.callout{border-radius:8px;padding:14px 18px;margin:14px 0;border-left:4px solid;font-size:0.95rem}
+.callout-key{background:var(--key-bg);border-color:var(--key-border)}
+.callout-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.callout-example{background:var(--example-bg);border-color:var(--example-border)}
+.callout-label{font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.callout-key .callout-label{color:var(--key-border)}
+.callout-warn .callout-label{color:var(--warn-border)}
+.callout-example .callout-label{color:var(--example-border)}
+.fact-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.92rem}
+.fact-table th{background:var(--accent);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+.fact-table td{padding:9px 14px;border-bottom:1px solid var(--border)}
+.fact-table tr:nth-child(even) td{background:var(--accent-light)}
+code,.mono{font-family:'JetBrains Mono',monospace;font-size:0.88em;background:var(--accent-light);padding:2px 6px;border-radius:4px}
+.tabs-container{max-width:960px;margin:30px auto}
+.tab-buttons{display:flex;gap:0;border-bottom:2px solid var(--border)}
+.tab-btn{font-family:'Source Sans 3',sans-serif;font-size:1rem;font-weight:600;padding:12px 24px;background:none;border:none;cursor:pointer;color:var(--text-muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-btn:hover{color:var(--accent)}
+.tab-panel{display:none;background:var(--card-bg);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:28px;box-shadow:var(--shadow)}
+.tab-panel.active{display:block}
+.quiz-controls{margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.quiz-controls select,.quiz-controls button{font-family:'Source Sans 3',sans-serif;font-size:0.95rem;padding:8px 16px;border-radius:6px;border:1px solid var(--border);cursor:pointer}
+.quiz-controls button{background:var(--accent);color:#fff;border:none;font-weight:600;transition:background 0.2s}
+.quiz-controls button:hover{background:var(--accent-dark)}
+.q-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:14px}
+.q-card p.q-text{font-weight:600;margin-bottom:10px}
+.q-card .q-num{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--accent);margin-right:6px}
+.q-card label{display:block;padding:6px 12px;margin:4px 0;border-radius:6px;cursor:pointer;transition:background 0.15s}
+.q-card label:hover{background:var(--accent-light)}
+.q-card input[type="radio"]{margin-right:8px;accent-color:var(--accent)}
+.q-feedback{margin-top:10px;padding:10px 14px;border-radius:6px;font-size:0.9rem;display:none}
+.q-feedback.correct{background:#e6f5ee;border:1px solid #0d7c4a;color:#064d2e}
+.q-feedback.incorrect{background:#fde8e8;border:1px solid #c0392b;color:#7b1a1a}
+.score-display{font-family:'JetBrains Mono',monospace;font-size:1.1rem;padding:14px;text-align:center;background:var(--accent-light);border-radius:8px;margin-top:16px;display:none}
+.fc-controls{margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap}
+.fc-cat-btn{font-family:'Source Sans 3',sans-serif;font-size:0.85rem;padding:6px 14px;border-radius:20px;border:1px solid var(--accent);background:#fff;color:var(--accent);cursor:pointer;transition:all 0.2s}
+.fc-cat-btn.active,.fc-cat-btn:hover{background:var(--accent);color:#fff}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.fc-card{perspective:800px;height:200px;cursor:pointer}
+.fc-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+.fc-card.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;padding:20px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:0.92rem;line-height:1.5;border:1px solid var(--border);box-shadow:var(--shadow)}
+.fc-front{background:var(--card-bg);font-weight:600}
+.fc-back{background:var(--accent-light);transform:rotateY(180deg)}
+.fc-tag{position:absolute;top:8px;right:10px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--accent);background:rgba(13,124,74,0.1);padding:2px 8px;border-radius:10px}
+.sa-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:16px}
+.sa-card p.sa-q{font-weight:600;margin-bottom:10px}
+.sa-card textarea{width:100%;min-height:80px;padding:10px;border:1px solid var(--border);border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:0.95rem;resize:vertical}
+.sa-card button{margin-top:8px;background:var(--accent);color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-weight:600;transition:background 0.2s}
+.sa-card button:hover{background:var(--accent-dark)}
+.sa-result{margin-top:10px;display:none}
+.sa-bar-container{background:#e0e0d8;border-radius:10px;height:14px;margin:8px 0;overflow:hidden}
+.sa-bar{height:100%;border-radius:10px;transition:width 0.5s}
+.sa-concepts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.sa-concept-tag{font-size:0.78rem;padding:3px 10px;border-radius:12px;font-family:'JetBrains Mono',monospace}
+.sa-concept-tag.hit{background:#d4edda;color:#155724}
+.sa-concept-tag.miss{background:#e9ecef;color:#6c757d}
+.sa-model{margin-top:10px;background:var(--accent-light);padding:12px;border-radius:6px;font-size:0.9rem;display:none}
+.sa-toggle-model{background:none;border:1px solid var(--accent);color:var(--accent);padding:4px 12px;border-radius:4px;cursor:pointer;font-size:0.82rem;margin-top:6px}
+.footer{text-align:center;padding:30px 20px;color:var(--text-muted);font-size:0.85rem}
+/* Worked Example Step-Through */
+.worked-example{background:#fff8ed;border:2px solid #d4860b;border-radius:10px;padding:20px 24px;margin:18px 0}
+.worked-example .we-title{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;color:#d4860b;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.worked-example .we-title::before{content:'✎';font-size:1.2rem}
+.worked-example .we-scenario{background:#fff3dc;border-radius:6px;padding:10px 14px;margin-bottom:12px;font-style:italic;border-left:3px solid #d4860b}
+.we-steps{counter-reset:step}
+.we-step{display:flex;gap:12px;margin:8px 0;align-items:flex-start}
+.we-step-num{background:#d4860b;color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.we-step-text{flex:1;font-size:0.93rem;line-height:1.6}
+.we-answer{background:#e6f5ee;border:1px solid #0d7c4a;border-radius:6px;padding:10px 14px;margin-top:10px;font-weight:600;color:#064d2e}
+/* Analogy boxes */
+.callout-analogy{background:#f0eef8;border-color:#7c5cbf}
+.callout-analogy .callout-label{color:#7c5cbf}
+/* Concept Check */
+.concept-check{background:#e8f4fd;border:1px solid #2980b9;border-radius:8px;padding:14px 18px;margin:16px 0}
+.concept-check .cc-label{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#2980b9;margin-bottom:6px}
+.concept-check .cc-question{font-weight:600;margin-bottom:8px;font-size:0.95rem}
+.cc-toggle{background:none;border:1px solid #2980b9;color:#2980b9;padding:5px 14px;border-radius:5px;cursor:pointer;font-size:0.82rem;font-family:'Source Sans 3',sans-serif}
+.cc-answer{display:none;margin-top:8px;background:#fff;border-radius:5px;padding:8px 12px;font-size:0.9rem;border:1px solid #bee3f8}
+/* Student tip strip */
+.student-tip{background:#fdf6ff;border-left:4px solid #9b59b6;border-radius:0 8px 8px 0;padding:10px 16px;margin:12px 0;font-size:0.9rem}
+.student-tip strong{color:#7d3c98}
+
+@media(max-width:700px){.section,.toc,.tabs-container{margin-left:10px;margin-right:10px}.section{padding:20px}.tab-btn{padding:10px 14px;font-size:0.9rem}.fc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Microbiology</h1>
+<div class="subtitle">Essential Study Reference</div>
+<div class="badge">BASIC / INTERMEDIATE</div>
+</div>
+<div style="background:linear-gradient(90deg,#7c5cbf,#2980b9);color:#fff;padding:14px 20px;text-align:center;font-size:0.92rem">
+<strong>For Struggling Students:</strong> Each section has <span style="background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:4px">✎ Worked Examples</span> with step-by-step reasoning, <span style="background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:4px">Concept Checks</span> to test yourself, and <span style="background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:4px">Memory Tricks</span>. Work through the examples before attempting the interactive quiz.
+</div>
+<div class="toc"><h2>Table of Contents</h2><div class="toc-grid">
+<a href="#s1"><span class="sec-num">01</span>Introduction to Microbiology</a>
+<a href="#s2"><span class="sec-num">02</span>Prokaryotic Cell Structure</a>
+<a href="#s3"><span class="sec-num">03</span>Bacterial Growth &amp; Metabolism</a>
+<a href="#s4"><span class="sec-num">04</span>Microbial Genetics</a>
+<a href="#s5"><span class="sec-num">05</span>Viruses &amp; Prions</a>
+<a href="#s6"><span class="sec-num">06</span>Eukaryotic Microbes</a>
+<a href="#s7"><span class="sec-num">07</span>Microbial Control &amp; Antibiotics</a>
+<a href="#s8"><span class="sec-num">08</span>Innate &amp; Adaptive Immunity</a>
+<a href="#s9"><span class="sec-num">09</span>Infectious Disease &amp; Epidemiology</a>
+<a href="#s10"><span class="sec-num">10</span>Clinical &amp; Applied Microbiology</a>
+<a href="#interactive"><span class="sec-num">++</span>Quiz, Flashcards &amp; Short Answer</a>
+</div></div>
+
+<div class="section" id="s1">
+<h2><span class="sec-num">01</span>Introduction to Microbiology</h2>
+<p>Microbiology is the study of organisms too small to see without magnification, including bacteria, viruses, fungi, protozoa, and algae. The central concept to grasp first is that microorganisms are everywhere and most of them are not harmful. In fact, the majority play essential roles in nutrient cycling, food production, and human health. Only a small fraction are pathogenic (disease-causing).</p>
+<h3>Historical Foundations</h3>
+<p>Antonie van Leeuwenhoek was the first to observe microorganisms using his handcrafted microscopes in the 1670s, calling them "animalcules." Louis Pasteur disproved spontaneous generation with his famous swan-neck flask experiments and developed pasteurization. Robert Koch established the germ theory of disease and created Koch's postulates, a logical framework still used today to prove that a specific microbe causes a specific disease.</p>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>Koch's postulates require four steps: (1) the microbe must be found in all diseased organisms but not healthy ones, (2) it must be isolated and grown in pure culture, (3) the cultured microbe must cause disease when introduced to a healthy host, and (4) the microbe must be re-isolated from the newly diseased host and shown to be the same organism.</div>
+<div class="callout callout-warn"><div class="callout-label">Common Mistake</div>Students often confuse Pasteur and Koch. Remember: Pasteur disproved spontaneous generation and developed pasteurization and vaccines (rabies). Koch established the germ theory as a formal logical framework (Koch's postulates) and identified specific causative agents of anthrax and tuberculosis.</div>
+<h3>Domains of Life and Microbial Classification</h3>
+<p>All life is classified into three domains: Bacteria, Archaea, and Eukarya. Bacteria and Archaea are both prokaryotic (no membrane-bound nucleus) but differ fundamentally in cell wall chemistry, membrane lipids, and ribosomal RNA sequences. Archaea often inhabit extreme environments (extremophiles) such as hot springs and salt lakes, though many also live in moderate environments.</p>
+<table class="fact-table">
+<tr><th>Feature</th><th>Bacteria</th><th>Archaea</th><th>Eukarya</th></tr>
+<tr><td>Nucleus</td><td>No</td><td>No</td><td>Yes</td></tr>
+<tr><td>Cell wall</td><td>Peptidoglycan</td><td>Pseudopeptidoglycan or none</td><td>Varies (chitin, cellulose, or none)</td></tr>
+<tr><td>Membrane lipids</td><td>Ester-linked fatty acids</td><td>Ether-linked branched chains</td><td>Ester-linked fatty acids</td></tr>
+<tr><td>Ribosomes</td><td>70S</td><td>70S</td><td>80S (cytoplasmic)</td></tr>
+<tr><td>Histones</td><td>No</td><td>Yes (some)</td><td>Yes</td></tr>
+</table>
+<div class="callout callout-example"><div class="callout-label">Example</div>When you eat yogurt, you consume billions of <em>Lactobacillus</em> and <em>Streptococcus thermophilus</em> bacteria. These beneficial microbes ferment lactose into lactic acid, which thickens the milk and produces the tangy flavor.</div>
+<h3>Naming Microorganisms</h3>
+<p>Microbes are named using binomial nomenclature: the genus name is capitalized and the species name is lowercase, both italicized. After first use, the genus can be abbreviated. For example, <em>Escherichia coli</em> becomes <em>E. coli</em>. Modern classification relies heavily on 16S rRNA gene sequencing for prokaryotes and 18S rRNA for eukaryotes.</p>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Applying Koch's Postulates</div>
+<div class="we-scenario">A physician notices that patients with a mysterious lung disease all have the same unusual bacterium in their sputum. How would you confirm this bacterium causes the disease?</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Postulate 1 — Find it in disease, not health:</strong> Culture sputum from all sick patients AND from healthy controls. The bacterium must appear consistently in sick patients but not healthy ones.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Postulate 2 — Isolate it:</strong> Grow the bacterium alone on a culture plate to produce a pure culture. Confirm identity with staining and biochemical tests.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Postulate 3 — Re-create disease:</strong> Introduce the pure culture into a healthy animal model. If the same lung disease develops, you have strong evidence.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Postulate 4 — Re-isolate:</strong> Culture the sick animal's lungs, and confirm the same bacterium is recovered.</div></div>
+</div>
+<div class="we-answer">✓ Conclusion: Only if all four steps succeed can you claim this bacterium causes this disease.</div>
+</div>
+
+<div class="callout callout-example"><div class="callout-label">Where Koch's Postulates Break Down</div>Some pathogens defy the postulates. <em>Treponema pallidum</em> (syphilis) cannot be cultured outside the body, so Postulate 2 fails. HIV cannot ethically be given to a healthy human volunteer, so Postulate 3 cannot be tested. For viruses like HIV, molecular techniques substitute for classic postulates. Knowing these exceptions is as important as knowing the rules.</div>
+
+<div class="callout callout-analogy callout-key"><div class="callout-label">Analogy: Pasteur vs. Koch</div>Think of Pasteur as the <em>myth-buster</em> (proved microbes come from other microbes, not thin air) and Koch as the <em>detective</em> (built the logical framework for proving which microbe commits the crime of causing a specific disease). Different jobs, different tools.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">A scientist isolates a fungus from every patient with a skin rash and grows it in pure culture, but skips the animal inoculation step. Which of Koch's postulates did they fail to complete, and why does this matter?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">They failed Postulate 3 (causing disease in a healthy host). Without this step, they cannot rule out that the fungus is simply an innocent bystander — a commensal colonizer present on sick skin for reasons unrelated to the rash. Correlation alone never proves causation.</div>
+</div>
+</div>
+
+<div class="section" id="s2">
+<h2><span class="sec-num">02</span>Prokaryotic Cell Structure</h2>
+<p>Bacterial cells are structurally simpler than eukaryotic cells, but they have unique structures that serve as targets for antibiotics and as tools for identification. Understanding bacterial anatomy is essential because many clinical and laboratory techniques exploit these structural differences.</p>
+<h3>Cell Shapes and Arrangements</h3>
+<p>Bacteria come in three primary shapes: cocci (spherical), bacilli (rod-shaped), and spirilla/spirochetes (spiral). Cocci can arrange as diplococci (pairs), streptococci (chains), staphylococci (grape-like clusters), or tetrads. Bacilli can appear as single rods, streptobacilli (chains), or coccobacilli (short, oval rods).</p>
+<h3>The Cell Envelope</h3>
+<p>The most clinically important structural distinction is between Gram-positive and Gram-negative bacteria. The Gram stain exploits differences in cell wall thickness and composition.</p>
+<table class="fact-table">
+<tr><th>Feature</th><th>Gram-positive</th><th>Gram-negative</th></tr>
+<tr><td>Gram stain color</td><td>Purple/violet</td><td>Pink/red</td></tr>
+<tr><td>Peptidoglycan</td><td>Thick (20-80 nm)</td><td>Thin (1-3 nm)</td></tr>
+<tr><td>Outer membrane</td><td>Absent</td><td>Present</td></tr>
+<tr><td>LPS (endotoxin)</td><td>Absent</td><td>Present</td></tr>
+<tr><td>Teichoic acids</td><td>Present</td><td>Absent</td></tr>
+<tr><td>Periplasmic space</td><td>Small or absent</td><td>Present</td></tr>
+</table>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>The Lipopolysaccharide (LPS) of Gram-negative bacteria is one of the most important molecules in microbiology. Its lipid A component is an endotoxin that triggers powerful immune responses and can cause septic shock.</div>
+<div class="callout callout-warn"><div class="callout-label">Common Mistake</div>Students often say Gram-negative bacteria "have no peptidoglycan." They do have peptidoglycan, it is just much thinner. The key distinction is the presence of an outer membrane containing LPS.</div>
+<h3>External Structures</h3>
+<p>Flagella are long, whip-like appendages providing motility, powered by a proton motive force motor. Pili (fimbriae) are shorter projections used for attachment; the sex pilus (F pilus) is used during conjugation. Capsules are extracellular polysaccharide coatings that help bacteria evade phagocytosis and facilitate biofilm formation.</p>
+<h3>Endospores</h3>
+<p>Certain genera, most notably <em>Bacillus</em> and <em>Clostridium</em>, form endospores when nutrients become scarce. Endospores are the most resistant biological structures known, surviving boiling, UV radiation, desiccation, and most chemical disinfectants. Resistance comes from dipicolinic acid (DPA) complexed with calcium ions in the core, plus multiple protective coat layers.</p>
+<div class="callout callout-example"><div class="callout-label">Example</div><em>Clostridium botulinum</em> endospores can survive improper home canning. When conditions become anaerobic in the sealed jar, the spores germinate and produce botulinum toxin. This is why pressure canning (121 degrees C) is required for low-acid foods.</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: The Gram Stain Step by Step</div>
+<div class="we-scenario">You receive a wound swab from a patient. Your job: determine whether the bacteria present are Gram-positive or Gram-negative so the physician can select the right antibiotic.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Crystal violet (primary stain):</strong> Apply to heat-fixed smear. ALL bacteria turn purple at this stage — both Gram-positive and Gram-negative.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Gram's iodine (mordant):</strong> Forms a crystal violet-iodine complex that gets trapped in thick peptidoglycan. Still, everything looks purple.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Alcohol/acetone (decolorizer):</strong> This is the critical step. Gram-positive bacteria: thick peptidoglycan retains the complex — stays purple. Gram-negative bacteria: the alcohol dissolves the outer membrane and thin peptidoglycan cannot retain the dye — loses color and becomes transparent.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Safranin (counterstain):</strong> Gram-negative bacteria (now colorless) absorb safranin and appear pink/red. Gram-positive (already purple) are unaffected.</div></div>
+</div>
+<div class="we-answer">✓ Purple = Gram-positive (thick peptidoglycan retained dye). Pink/red = Gram-negative (outer membrane + thin peptidoglycan lost dye). This guides antibiotic selection before culture results arrive.</div>
+</div>
+
+<div class="student-tip"><strong>Memory trick for decolorization:</strong> Think of Gram-positive bacteria as wearing a heavy wool sweater (thick peptidoglycan) that soaks up the crystal violet dye and refuses to let go. Gram-negative bacteria have only a thin undershirt (thin peptidoglycan) under a waterproof jacket (outer membrane) — when alcohol removes the jacket, the thin fabric can't hold the dye.</div>
+
+<div class="callout callout-example"><div class="callout-label">Clinical Application</div>A patient with a UTI has Gram-positive cocci in clusters on urinalysis smear. What does this tell you before culture results? Clusters suggest <em>Staphylococcus</em>. Gram-positive means: no LPS, no outer membrane barrier, so many Gram-positive-targeted drugs (penicillin class) could work. If the patient had Gram-negative rods instead, you'd think <em>E. coli</em> and consider a fluoroquinolone or nitrofurantoin while awaiting culture.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">A student accidentally leaves the decolorizer on too long during a Gram stain. How would this affect the result, and which bacteria would be misidentified?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">Over-decolorization would strip the crystal violet-iodine complex even from Gram-positive bacteria (whose thick peptidoglycan normally retains it). They would lose color and then pick up safranin — appearing pink/red like Gram-negatives. This would cause Gram-positive bacteria to be <em>incorrectly reported as Gram-negative</em>, potentially leading to wrong antibiotic selection. This is one reason Gram stain results should always be interpreted alongside patient history and culture.</div>
+</div>
+</div>
+
+<div class="section" id="s3">
+<h2><span class="sec-num">03</span>Bacterial Growth &amp; Metabolism</h2>
+<p>Bacteria grow by binary fission, splitting one cell into two genetically identical daughter cells. Bacterial populations grow exponentially: a single <em>E. coli</em> dividing every 20 minutes could theoretically produce over 5 billion cells in just 11 hours.</p>
+<h3>The Bacterial Growth Curve</h3>
+<p>In fresh liquid medium, populations follow four phases. The lag phase is adjustment (synthesizing enzymes, not dividing). The log (exponential) phase is maximum division rate. The stationary phase is when growth rate equals death rate as nutrients deplete. The death (decline) phase is when cell death exceeds division.</p>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>Generation time varies enormously. <em>E. coli</em> divides every ~20 minutes; <em>Mycobacterium tuberculosis</em> takes 15-20 hours. This explains why TB cultures must incubate for weeks.</div>
+<h3>Oxygen Requirements</h3>
+<table class="fact-table">
+<tr><th>Classification</th><th>O2 Requirement</th><th>Examples</th></tr>
+<tr><td>Obligate aerobe</td><td>Requires O2</td><td><em>M. tuberculosis</em>, <em>Pseudomonas</em></td></tr>
+<tr><td>Obligate anaerobe</td><td>Killed by O2</td><td><em>Clostridium</em>, <em>Bacteroides</em></td></tr>
+<tr><td>Facultative anaerobe</td><td>Grows with or without O2</td><td><em>E. coli</em>, <em>Staphylococcus</em></td></tr>
+<tr><td>Microaerophile</td><td>Requires low O2</td><td><em>H. pylori</em>, <em>Campylobacter</em></td></tr>
+<tr><td>Aerotolerant anaerobe</td><td>Ignores O2, only ferments</td><td><em>Lactobacillus</em></td></tr>
+</table>
+<div class="callout callout-warn"><div class="callout-label">Common Mistake</div>Facultative anaerobes CAN switch between aerobic and anaerobic metabolism (they prefer O2 for more ATP). Aerotolerant anaerobes ONLY ferment and simply tolerate oxygen without using it. These are not the same thing.</div>
+<h3>Metabolic Pathways</h3>
+<p>Aerobic respiration proceeds through glycolysis, the Krebs cycle, and the electron transport chain (theoretical max ~38 ATP per glucose). In anaerobic respiration, the final electron acceptor is an inorganic molecule other than O2 (nitrate, sulfate). Fermentation uses an organic molecule as the final electron acceptor, producing ethanol, lactic acid, or mixed acids. Fermentation end products are diagnostically useful (e.g., the IMViC series: Indole, Methyl Red, Voges-Proskauer, Citrate).</p>
+<div class="callout callout-example"><div class="callout-label">Example</div><em>E. coli</em> is methyl red positive and VP negative (mixed-acid fermentation). <em>Enterobacter</em> is methyl red negative and VP positive (butanediol fermentation). This distinction is used in the IMViC series for identification.</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Identifying Oxygen Class from Clinical Clues</div>
+<div class="we-scenario">A lab technician places bacterial samples in four different culture conditions. Match each result to the correct oxygen classification.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Growth only on top of the tube (near the oxygen-rich surface):</strong> → <strong>Obligate aerobe</strong> (requires O₂, cannot survive without it). Example: <em>M. tuberculosis</em> — this is why TB loves the lung apex, which has the highest O₂ tension.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Growth only at the bottom of the tube (away from oxygen):</strong> → <strong>Obligate anaerobe</strong> (killed by O₂). Example: <em>Clostridium</em> — thrives in deep puncture wounds where O₂ cannot penetrate.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Growth throughout the tube, but denser at top:</strong> → <strong>Facultative anaerobe</strong> (prefers O₂ but survives without it). Example: <em>E. coli</em>.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Growth uniformly throughout, not denser at top or bottom:</strong> → <strong>Aerotolerant anaerobe</strong> (only ferments, indifferent to O₂). Example: <em>Lactobacillus</em>.</div></div>
+</div>
+<div class="we-answer">✓ The tube-growth pattern is a classic lab practical question. Key distinction: facultative anaerobes PREFER O₂ and grow denser near it; aerotolerant anaerobes are INDIFFERENT to O₂ and grow evenly.</div>
+</div>
+
+<div class="callout callout-analogy callout-key"><div class="callout-label">Analogy: Growth Curve Phases</div>Think of bacteria starting a new job. Lag phase: orientation week — learning the ropes, no output yet. Log phase: peak productivity — doubling output every 20 minutes. Stationary phase: hit the supply limit — gains equal losses. Death phase: resources exhausted, people quit faster than they are hired.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question"><em>Helicobacter pylori</em> causes stomach ulcers and requires a microaerophilic environment to grow. If you culture it in normal air (21% O₂), what will happen, and what does this mean for growing it in the lab?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer"><em>H. pylori</em> will fail to grow (or grow very poorly) in normal atmospheric O₂ because it needs only 5–10% O₂ — much less than room air. In the lab, it must be incubated in special microaerophilic jars or gas-pak systems that reduce O₂ and elevate CO₂. This is one reason <em>H. pylori</em> cultures take 3–7 days and require special equipment — making it a notoriously difficult organism to grow.</div>
+</div>
+</div>
+
+<div class="section" id="s4">
+<h2><span class="sec-num">04</span>Microbial Genetics</h2>
+<p>Bacteria achieve genetic diversity without sexual reproduction through mutation and three mechanisms of horizontal gene transfer: transformation, transduction, and conjugation. Understanding these mechanisms explains how antibiotic resistance spreads so rapidly.</p>
+<h3>Bacterial Chromosome and Plasmids</h3>
+<p>Most bacteria have a single, circular chromosome in the nucleoid region. Many also carry plasmids: small, circular, self-replicating DNA carrying advantageous genes. R plasmids carry antibiotic resistance genes. F plasmids carry conjugation genes. Virulence plasmids carry toxin genes.</p>
+<h3>Horizontal Gene Transfer</h3>
+<table class="fact-table">
+<tr><th>Mechanism</th><th>How It Works</th><th>Key Detail</th></tr>
+<tr><td>Transformation</td><td>Uptake of free DNA from environment</td><td>Cell must be "competent"; Griffith's experiment</td></tr>
+<tr><td>Transduction</td><td>Phage carries host DNA to new cell</td><td>Generalized (random) vs. specialized (near prophage site)</td></tr>
+<tr><td>Conjugation</td><td>Direct cell-to-cell transfer via pilus</td><td>Requires F plasmid; Hfr cells have F integrated</td></tr>
+</table>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>Conjugation is the most clinically significant mechanism because it transfers large DNA segments, including multiple antibiotic resistance genes on R plasmids, between even distantly related bacteria. This drives multidrug resistance in hospitals.</div>
+<div class="callout callout-warn"><div class="callout-label">Common Mistake</div>Transformation, transduction, and conjugation are NOT forms of reproduction. Binary fission is reproduction. Horizontal gene transfer is about genetic diversity, not producing new cells.</div>
+<h3>Gene Regulation: The Operon Model</h3>
+<p>The lac operon is inducible: lactose metabolism genes are transcribed only when lactose is present AND glucose is absent. The trp operon is repressible: tryptophan synthesis genes are turned off when tryptophan is abundant. Catabolite repression ensures bacteria preferentially use glucose over other sugars.</p>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Tracing an Antibiotic Resistance Outbreak</div>
+<div class="we-scenario">An ICU reports that a Gram-negative bacterium has suddenly become resistant to three different antibiotics at once. How did this happen so fast? No new mutations were detected.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Recognize the clue:</strong> Simultaneous multi-drug resistance appearing suddenly in a new species cannot come from point mutation alone — mutation is slow and typically changes one gene at a time. This points to horizontal gene transfer.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Identify the most likely mechanism:</strong> Three resistance genes transferred together suggests a plasmid (R plasmid) — a circular DNA element that carries multiple resistance genes at once. Conjugation is the most common route for R plasmid transfer in clinical settings.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Confirm with conjugation biology:</strong> The donor bacterium (carrying R plasmid) extended a sex pilus, made contact with a recipient cell in the ICU environment, and transferred the plasmid. The recipient gained all three resistance genes simultaneously.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Public health implication:</strong> Because plasmids replicate independently, every daughter cell of the new host also carries resistance. Strict contact precautions and antibiotic stewardship are the only ways to interrupt this cycle.</div></div>
+</div>
+<div class="we-answer">✓ This is exactly how hospital MDR outbreaks work. Conjugation transfers large DNA blocks (R plasmids) between even distantly related bacteria — far faster and more dangerous than mutation-driven resistance.</div>
+</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: The Lac Operon Logic Puzzle</div>
+<div class="we-scenario">A bacterium has plenty of lactose available but also has high glucose. Will the lac operon be fully expressed?</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Check the repressor:</strong> Lactose (converted to allolactose) binds and inactivates the lac repressor. The repressor is OFF — so the operon is <em>de-repressed</em>. This is a "yes" for transcription.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Check catabolite repression:</strong> High glucose means low cAMP. Low cAMP means the CAP activator protein cannot bind the promoter. Without CAP, RNA polymerase binds poorly. This is a "no" for full activation.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Net result:</strong> Operon is de-repressed but NOT fully activated. Only minimal, low-level transcription occurs. The bacterium is preferentially using glucose (easier to metabolize) and not fully committing to lactose metabolism.</div></div>
+</div>
+<div class="we-answer">✓ Both conditions must be met: lactose present (removes repressor) AND glucose absent (high cAMP activates CAP). This is the famous "glucose is preferred" catabolite repression — bacteria are strategically frugal about when they manufacture new enzymes.</div>
+</div>
+
+<div class="student-tip"><strong>Memory trick for HGT mechanisms:</strong> "Three ways to share genes without sex — Pickup (Transformation: pick up free DNA), Parcel Post (Transduction: phage delivers a DNA package), and Personal Handshake (Conjugation: direct pilus contact required)."</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">You add tryptophan to a bacterial culture. What happens to the trp operon, and how does this differ from how the lac operon responds to lactose?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">The trp operon is a <em>repressible</em> operon. Adding tryptophan activates the trp repressor, which then binds the operator and <em>turns OFF</em> transcription of the tryptophan synthesis genes — because there is no need to make what is already abundant. This is the opposite logic from the lac operon: lactose addition <em>removes</em> its repressor and turns the operon ON. Inducible operons are turned on by the substrate; repressible operons are turned off by the end product.</div>
+</div>
+</div>
+
+<div class="section" id="s5">
+<h2><span class="sec-num">05</span>Viruses &amp; Prions</h2>
+<p>Viruses are obligate intracellular parasites: packages of genetic material (DNA or RNA, never both) surrounded by a protein coat (capsid), sometimes with a lipid envelope. They are not considered living organisms by most biologists.</p>
+<h3>Viral Structure</h3>
+<p>Capsids come in three shapes: icosahedral (20-sided), helical (rod-shaped), and complex (like bacteriophages). Enveloped viruses acquire a lipid bilayer from the host during budding, with glycoprotein spikes for attachment. Enveloped viruses are more susceptible to disinfection because the lipid envelope is easily disrupted.</p>
+<h3>Viral Replication</h3>
+<p>Five steps: attachment to host receptor, penetration, synthesis of viral components using host machinery, assembly, and release (lysis or budding). Bacteriophages follow either the lytic cycle (immediate takeover and lysis) or lysogenic cycle (integration as prophage until triggered).</p>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>The Baltimore classification groups viruses into seven classes by genome type: dsDNA, ssDNA, dsRNA, +ssRNA, -ssRNA, ssRNA-RT (retroviruses like HIV), and dsDNA-RT (hepadnaviruses like Hep B).</div>
+<h3>RNA Viruses and Retroviruses</h3>
+<p>Positive-sense ssRNA can be directly translated as mRNA (coronaviruses, poliovirus). Negative-sense ssRNA must first be transcribed by RNA-dependent RNA polymerase (influenza, Ebola, rabies). Retroviruses (HIV) use reverse transcriptase to make dsDNA that integrates as a provirus.</p>
+<div class="callout callout-warn"><div class="callout-label">Common Mistake</div>Do not confuse lysogeny with latency. Lysogeny is phage DNA integrating into a bacterial chromosome. Latency is an animal virus (like herpes) persisting dormant in host cells. Different mechanisms, different organisms.</div>
+<h3>Prions</h3>
+<p>Prions are infectious agents composed entirely of misfolded protein (PrP<sup>Sc</sup>), with no nucleic acid. They convert normal PrP<sup>C</sup> into the misfolded form, causing transmissible spongiform encephalopathies (CJD, mad cow disease, scrapie). Prions are extraordinarily resistant to heat, UV, and chemicals.</p>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Identifying Viral Replication Strategy</div>
+<div class="we-scenario">An exam question tells you that a new virus has a negative-sense single-stranded RNA genome. Walk through what this virus must carry and why.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>What does negative-sense mean?</strong> The RNA strand is the complementary/template strand — it reads opposite to mRNA. A ribosome cannot translate it directly as a message.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>What must the virus bring along?</strong> It must package its own RNA-dependent RNA polymerase (RdRp) inside the virion. Without this enzyme, the cell cannot convert the negative-sense genome into positive-sense mRNA that ribosomes can read.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Why can't the host provide RdRp?</strong> Human cells only transcribe DNA to RNA — they have no enzyme to make RNA from an RNA template. Only these viruses need to bring their own.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Real examples:</strong> Influenza, Ebola, rabies, RSV — all negative-sense ssRNA viruses that carry their own RdRp in the virion.</div></div>
+</div>
+<div class="we-answer">✓ Rule of thumb: Positive-sense RNA → goes straight to ribosome. Negative-sense RNA → must be transcribed first → virus must carry RdRp. Retroviruses (HIV) are different: ssRNA → reverse transcriptase makes DNA → integrates as provirus.</div>
+</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Lytic vs. Lysogenic Cycle Decision</div>
+<div class="we-scenario">A bacteriophage infects a rapidly dividing <em>E. coli</em> in a lab with abundant nutrients. Later, the same phage infects a starving <em>E. coli</em>. Would you expect the same replication outcome?</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Scenario A — Healthy, well-fed host:</strong> The phage detects a healthy host with active transcription machinery. Lytic cycle is favored: take over the cell, replicate rapidly, burst out 100–200 new phages per cell.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Scenario B — Starving, stressed host:</strong> Lysed cells release phage into an environment with few new hosts. Better strategy: integrate as a prophage and "ride out" the hard times, replicating silently with the host chromosome.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>The trigger for induction:</strong> When the dormant host later encounters DNA damage (UV light activates SOS response), the prophage senses impending host death, excises from the chromosome, and switches to the lytic cycle.</div></div>
+</div>
+<div class="we-answer">✓ Phages are strategic: lytic when conditions favor rapid spread, lysogenic when the environment is hostile. This is why lysogenic conversion (prophage carrying toxin genes like diphtheria or cholera toxin) is clinically significant — the toxin genes persist silently until conditions change.</div>
+</div>
+
+<div class="callout callout-analogy callout-key"><div class="callout-label">Analogy: Retroviruses</div>HIV is like a spy who breaks into your house (the cell), rewrites your blueprints (reverse transcriptase makes DNA), files the new blueprints in your permanent records (integrates as provirus), and then waits. Every time your blueprints are copied for building work (cell division), the spy's instructions are copied too. You can evict the spy's furniture (antiretroviral drugs suppress replication) but you cannot purge the instructions from the permanent file (integrated provirus remains).</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">A healthcare worker accidentally gets stuck by a needle from a patient with hepatitis B. Hepatitis B is a dsDNA-RT virus (hepadnavirus). Why does it use reverse transcriptase if it already has double-stranded DNA?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">Hepatitis B has an unusual "backwards" replication cycle. It transcribes its dsDNA into an RNA intermediate called pregenomic RNA (pgRNA) first, then uses reverse transcriptase to convert that RNA back into new dsDNA. This RNA→DNA step is the target of antiviral drugs like tenofovir, which inhibit the reverse transcriptase. The dsDNA form also explains why HBV can establish a nuclear cccDNA reservoir that is extremely difficult to eliminate — similar to the HIV provirus problem.</div>
+</div>
+</div>
+
+<div class="section" id="s6">
+<h2><span class="sec-num">06</span>Eukaryotic Microbes: Fungi, Protozoa &amp; Helminths</h2>
+<p>Because eukaryotic pathogens share cellular machinery with human hosts, developing drugs that target them without harming the patient is much more challenging than developing antibacterials.</p>
+<h3>Fungi</h3>
+<p>Fungi have cell walls made of chitin. Yeasts are unicellular (reproduce by budding). Molds grow as branching hyphae forming a mycelium. Dimorphic fungi exist as mold at 25 degrees C and yeast at 37 degrees C: "mold in the cold, yeast in the beast."</p>
+<table class="fact-table">
+<tr><th>Type</th><th>Examples</th><th>Key Details</th></tr>
+<tr><td>Superficial/cutaneous</td><td>Dermatophytes (ringworm)</td><td>Infect keratinized tissue</td></tr>
+<tr><td>Systemic/endemic</td><td><em>Histoplasma</em>, <em>Coccidioides</em></td><td>Inhaled spores; dimorphic; geographic</td></tr>
+<tr><td>Opportunistic</td><td><em>Candida</em>, <em>Aspergillus</em>, <em>Cryptococcus</em></td><td>Primarily in immunocompromised</td></tr>
+</table>
+<h3>Protozoa</h3>
+<p>Unicellular eukaryotes classified by locomotion: amoebae (pseudopods), flagellates, ciliates, and apicomplexans/sporozoans. Major diseases include malaria (<em>Plasmodium</em>), giardiasis, amoebic dysentery, and toxoplasmosis.</p>
+<h3>Helminths</h3>
+<p>Parasitic worms with microscopic eggs/larvae: nematodes (roundworms like <em>Ascaris</em>, hookworm), cestodes (tapeworms), and trematodes (flukes like <em>Schistosoma</em>). Many have complex life cycles with intermediate hosts.</p>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Using Dimorphism to Identify Fungal Infections</div>
+<div class="we-scenario">A 35-year-old farmer from the Ohio River Valley presents with fever, chest pain, and lung nodules on X-ray. Lab sends samples to both a room-temperature incubator (25 °C) and a body-temperature incubator (37 °C). The 25 °C plate shows fluffy mold colonies; the 37 °C plate shows small yeast cells. What does this tell you?</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Apply the dimorphism rule:</strong> "Mold in the cold (25 °C), yeast in the beast (37 °C)." This organism is a dimorphic fungus.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Apply geographic clue:</strong> Ohio River Valley is the classic endemic zone for <em>Histoplasma capsulatum</em>. Infection comes from inhaling spores in soil contaminated with bird/bat droppings.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Confirm the disease mechanism:</strong> Inhaled mold conidia convert to yeast form at 37 °C inside macrophages. In immunocompetent hosts, infection is often mild or asymptomatic. In immunocompromised patients, it becomes a serious systemic infection.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Treatment approach:</strong> Itraconazole for mild-moderate; amphotericin B for severe disease. Antifungals target ergosterol in the fungal membrane — a molecule absent in human cells.</div></div>
+</div>
+<div class="we-answer">✓ Diagnosis: Histoplasmosis. The dimorphism finding + geography + occupational exposure (farm work, soil disturbance) are the classic clue trio on exams.</div>
+</div>
+
+<div class="student-tip"><strong>Why eukaryotic pathogens are harder to treat:</strong> Bacteria differ from us enough that antibiotics can safely target them (peptidoglycan, bacterial ribosomes). Fungi, protozoa, and helminths are eukaryotes — like us. They share our ribosomes, similar cell signaling, similar membranes. Every antifungal and antiparasitic drug is a careful balance between "kills the organism" and "doesn't poison the patient." This is why antifungal choices are limited and side effects can be serious.</div>
+
+<div class="callout callout-example"><div class="callout-label">Worked Example: Malaria Life Cycle (Simplified)</div>1. <em>Anopheles</em> mosquito injects <strong>sporozoites</strong> into bloodstream. 2. Sporozoites travel to liver — <strong>exoerythrocytic phase</strong> (asymptomatic). 3. Liver cells rupture, releasing <strong>merozoites</strong> into blood. 4. Merozoites invade RBCs — <strong>erythrocytic phase</strong> (causes fever/chills when RBCs rupture synchronously). 5. Some merozoites become <strong>gametocytes</strong>, taken up by another mosquito to complete the cycle. The fever pattern (every 48 or 72 hours) reflects synchronized RBC lysis. This timing is a classic exam clue for malaria.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">An immunocompetent patient's blood culture grows <em>Candida albicans</em>. A colleague says "Candida is normal microbiota, so this must be a contaminated sample." Is the colleague right, and what clinical context would make you take this seriously?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">The colleague is partially right that <em>Candida</em> colonizes skin and mucous membranes, but a blood culture growing <em>Candida</em> is never dismissed as contamination — it indicates invasive candidiasis, a serious and potentially fatal infection. This is most concerning in: (1) ICU patients with central venous catheters, (2) immunocompromised patients (HIV, transplant, chemotherapy), (3) patients on broad-spectrum antibiotics that wiped out normal bacterial competition. A positive blood culture for <em>Candida</em> always warrants treatment with antifungals (fluconazole or echinocandin).</div>
+</div>
+</div>
+
+<div class="section" id="s7">
+<h2><span class="sec-num">07</span>Microbial Control &amp; Antibiotics</h2>
+<p>The central concept is selectivity: kill the pathogen without harming the host or the material being treated.</p>
+<h3>Physical and Chemical Control</h3>
+<table class="fact-table">
+<tr><th>Method</th><th>Mechanism</th><th>Use</th></tr>
+<tr><td>Autoclaving</td><td>121 C, 15 psi, 15 min</td><td>Sterilization (kills endospores)</td></tr>
+<tr><td>Pasteurization</td><td>72 C for 15 sec</td><td>Reduces microbial load (NOT sterilization)</td></tr>
+<tr><td>UV radiation</td><td>Thymine dimers in DNA</td><td>Surface/air disinfection</td></tr>
+<tr><td>Filtration (0.22 um)</td><td>Physical removal</td><td>Heat-sensitive liquids</td></tr>
+<tr><td>Alcohols (60-90%)</td><td>Protein denaturation</td><td>Skin antisepsis; not sporicidal</td></tr>
+</table>
+<div class="callout callout-warn"><div class="callout-label">Common Mistake</div>Pasteurization is NOT sterilization. It reduces microbial load but does not kill all organisms, especially endospores. This is why pasteurized milk still expires.</div>
+<h3>Antibiotics: Mechanisms of Action</h3>
+<p>Five major mechanisms: (1) Cell wall synthesis inhibition (penicillins, cephalosporins, vancomycin). (2) Cell membrane disruption (polymyxins, daptomycin). (3) Protein synthesis inhibition at 30S (tetracyclines, aminoglycosides) or 50S (macrolides, chloramphenicol, clindamycin, linezolid). (4) Nucleic acid synthesis inhibition (fluoroquinolones target DNA gyrase; rifampin targets RNA polymerase). (5) Metabolic pathway inhibition (sulfonamides and trimethoprim block folic acid synthesis).</p>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>Mnemonic: "Buy AT 30, CELL at 50." 30S: Aminoglycosides, Tetracyclines. 50S: Chloramphenicol, Erythromycin (macrolides), Linezolid, cLindamycin.</div>
+<h3>Antibiotic Resistance</h3>
+<p>Four mechanisms: enzymatic inactivation (beta-lactamases), target modification (altered PBPs in MRSA), decreased permeability (porin mutations), and efflux pumps. Resistance genes spread rapidly via plasmids and transposons through horizontal gene transfer.</p>
+<div class="callout callout-example"><div class="callout-label">Example</div>MRSA carries the mecA gene encoding PBP2a, an altered penicillin-binding protein with low affinity for ALL beta-lactams. Treatment options include vancomycin, daptomycin, and linezolid.</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Choosing the Right Antibiotic Class</div>
+<div class="we-scenario">A 25-year-old develops a community-acquired pneumonia. Sputum Gram stain shows Gram-positive diplococci (suggesting <em>S. pneumoniae</em>). Walk through antibiotic selection logic.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Identify target:</strong> Gram-positive → no outer membrane, no LPS. Target: peptidoglycan cell wall synthesis. Best class: beta-lactams (penicillins, cephalosporins) or vancomycin if resistant.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Check for likely resistance:</strong> Is this MRSA? No — <em>S. pneumoniae</em> is not MRSA. However, penicillin-resistant <em>S. pneumoniae</em> (PRSP) exists via altered PBPs. Local resistance rates matter.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Select specific drug:</strong> For community-acquired pneumonia, high-dose amoxicillin or a respiratory fluoroquinolone (levofloxacin). If atypicals (<em>Mycoplasma</em>, <em>Chlamydophila</em>) are also suspected (they lack cell walls), add a macrolide — cell wall drugs won't touch them.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>The conceptual point:</strong> Antibiotic selection = (1) identify the likely organism, (2) identify its key vulnerability, (3) select a drug targeting that vulnerability, (4) check for resistance mechanisms that could nullify the drug.</div></div>
+</div>
+<div class="we-answer">✓ This is the standard antibiotic reasoning framework for every clinical microbiology exam question. Organism → structural vulnerability → drug class → resistance check.</div>
+</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Why 100% Alcohol Does NOT Work Better Than 70%</div>
+<div class="we-scenario">A student thinks "more alcohol = better disinfection." She uses pure 100% ethanol instead of 70% isopropyl alcohol to wipe down a bench. Why is this actually less effective?</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>How alcohol kills bacteria:</strong> It denatures proteins. But protein denaturation requires water — water is the chemical catalyst for the denaturation reaction.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>100% alcohol problem:</strong> Without water, the alcohol evaporates instantly before penetrating bacterial cells. It also forms a protective coagulated protein shell on the outside of the cell that prevents further penetration. Paradoxically, bacteria can survive inside this protective shell.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>70% alcohol solution:</strong> The 30% water slows evaporation and facilitates protein denaturation throughout the cell. More contact time, better penetration, better kill.</div></div>
+</div>
+<div class="we-answer">✓ This is why 60–90% alcohol (not 100%) is the recommended range for antisepsis. More concentrated is not always more effective — mechanism matters.</div>
+</div>
+
+<div class="callout callout-analogy callout-key"><div class="callout-label">Analogy: Antibiotic Mnemonic "Buy AT 30, CELL at 50"</div>Think of a two-story ribosome factory. The ground floor (30S subunit) is rented out to companies A and T: <strong>A</strong>minoglycosides and <strong>T</strong>etracyclines. The upper floor (50S subunit) has four tenants with the sign "<strong>CELL</strong>": <strong>C</strong>hloramphenicol, <strong>E</strong>rythromycin (macrolides), <strong>L</strong>inezolid, c<strong>L</strong>indamycin. Always capitalize the mnemonic letters when you write them so the pattern is visible.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">A hospital epidemiologist notices that a Gram-negative rod is now resistant to carbapenems (last-resort beta-lactams). Investigation reveals no beta-lactamase gene is present. What other mechanism(s) could explain this resistance?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">Without beta-lactamase, the remaining mechanisms are: (1) <strong>Porin mutations</strong> — carbapenems enter Gram-negative bacteria through outer membrane porins (OprD in <em>Pseudomonas</em>). Downregulation or loss of these channel proteins blocks drug entry. (2) <strong>Efflux pumps</strong> — upregulation of efflux pump systems (like MexAB-OprM in <em>Pseudomonas</em>) actively pumps the drug out before it can reach PBPs. (3) <strong>Altered PBPs</strong> — target modification reduces drug binding affinity. In clinical practice, carbapenem-resistant organisms (CROs) often combine multiple mechanisms simultaneously, making them extremely difficult to treat.</div>
+</div>
+</div>
+
+<div class="section" id="s8">
+<h2><span class="sec-num">08</span>Innate &amp; Adaptive Immunity</h2>
+<p>Innate immunity is fast, non-specific, and present from birth. Adaptive immunity is slower but highly specific and creates immunological memory.</p>
+<h3>Innate Immunity</h3>
+<p>First line: physical barriers (skin, mucous membranes), chemical barriers (lysozyme, stomach acid), normal microbiota. Second line: phagocytes (neutrophils, macrophages), NK cells, complement, inflammation, fever. Toll-like receptors (TLRs) recognize PAMPs such as LPS (TLR4), flagellin (TLR5), and dsRNA (TLR3).</p>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>Complement has three outcomes: opsonization (C3b coats pathogens), membrane attack complex (C5b-C9 forms pores), and inflammation (C3a/C5a recruit immune cells). All three activation pathways converge at C3.</div>
+<h3>Adaptive Immunity</h3>
+<p>B cells produce antibodies (humoral immunity). Helper T cells (CD4+) coordinate responses via cytokines. Cytotoxic T cells (CD8+) kill infected host cells.</p>
+<table class="fact-table">
+<tr><th>Class</th><th>Location</th><th>Function</th></tr>
+<tr><td>IgG</td><td>Blood, tissues</td><td>Most abundant; crosses placenta; secondary response</td></tr>
+<tr><td>IgM</td><td>Blood</td><td>First produced; pentamer; primary response</td></tr>
+<tr><td>IgA</td><td>Mucous membranes, secretions</td><td>Mucosal defense; dimer in secretions</td></tr>
+<tr><td>IgE</td><td>Mast cells, basophils</td><td>Allergic reactions; parasitic defense</td></tr>
+<tr><td>IgD</td><td>B cell surface</td><td>B cell activation</td></tr>
+</table>
+<div class="callout callout-warn"><div class="callout-label">Common Mistake</div>Serum abundance order is GAMED (IgG > IgA > IgM > IgE > IgD), but IgM is always produced FIRST in a primary response. On re-exposure, IgG dominates the faster secondary response.</div>
+<h3>Vaccines</h3>
+<p>Types: live attenuated (MMR, varicella), inactivated (flu shot, Hep A), subunit/conjugate (Hep B, HPV), toxoid (tetanus, diphtheria), and mRNA (COVID-19). Live attenuated produce the strongest response but are contraindicated in immunocompromised patients.</p>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Reading an Immune Response Timeline</div>
+<div class="we-scenario">A patient receives their first tetanus vaccine. Three weeks later, serum antibody levels are measured. Four months later, they receive a booster. Describe what happens to antibody levels at each stage and which immunoglobulin class is dominant.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>First vaccine (primary response):</strong> Lag period of ~1–2 weeks while B cells recognize antigen and undergo clonal selection. IgM rises first. After class switching (with T cell help), IgG appears. Peak is modest. Some cells become long-lived memory B cells and plasma cells.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Three weeks post-vaccine:</strong> IgG is the dominant class now. Levels are detectable but may not yet provide full protection — this is why the full series matters.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Booster (secondary response):</strong> Memory B cells recognize antigen immediately. Response is faster (days, not weeks), larger (10–100x more antibody), and longer-lasting. IgG dominates with higher affinity due to somatic hypermutation in germinal centers.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Why IgM first?</strong> IgM is the default immunoglobulin — B cells make it before class switching occurs. High IgM = recent/active infection. High IgG = past infection or vaccination. This is how serology tests distinguish current from past exposure.</div></div>
+</div>
+<div class="we-answer">✓ Primary response: slow, low titer, IgM then IgG. Secondary response: fast, high titer, IgG dominant, higher affinity. This is the immunological memory that vaccines exploit.</div>
+</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Complement Pathway Identification</div>
+<div class="we-scenario">An exam question describes a patient who lacks MBL (mannose-binding lectin). Which complement pathway is impaired? What diseases is this patient susceptible to, and will the other pathways compensate?</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Identify the pathway:</strong> MBL = mannose-binding lectin = the Lectin pathway. This pathway recognizes mannose residues on microbial surfaces (common on bacteria, fungi) without needing antibodies.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>What bacteria does MBL normally catch?</strong> Encapsulated bacteria with mannose-rich capsules, common bacteria before specific antibodies are made (early infection), and certain fungi.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Compensation by other pathways:</strong> The alternative pathway can still activate spontaneously on bacterial surfaces. Once antibodies are made, the classical pathway activates. So MBL deficiency mainly creates a window of vulnerability early in infection before antibodies form.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Clinical result:</strong> Increased susceptibility to recurrent bacterial infections in children (when antibodies are not yet established). MBL deficiency is surprisingly common (~5% of people) and often mild.</div></div>
+</div>
+<div class="we-answer">✓ All three pathways converge at C3. Loss of one pathway weakens but doesn't abolish complement. The most critical complement deficiencies clinically are C5-C9 (cannot form MAC) — these patients are highly susceptible to <em>Neisseria</em> infections.</div>
+</div>
+
+<div class="student-tip"><strong>Memory trick for IgG crossing the placenta:</strong> "IgG = 'Goes' through the placenta." It's the only antibody class that does, providing passive immunity to newborns for ~6 months. IgM is too large (pentamer). IgA goes to breast milk instead. On every exam, if they mention maternal antibodies protecting a newborn, the answer is IgG.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">A 28-year-old pregnant woman who never had chickenpox (varicella) needs protection. Can she receive the live attenuated varicella vaccine? If not, what are the options?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">No — live attenuated vaccines are <em>contraindicated in pregnancy</em> because the attenuated (weakened but living) virus could theoretically infect and harm the fetus. This includes MMR, varicella, and yellow fever vaccines. Options: (1) Wait until after delivery to vaccinate. (2) Varicella-zoster immune globulin (VZIG) provides immediate passive immunity if she is exposed during pregnancy — pre-formed antibodies without a live virus. (3) After delivery, vaccinate before leaving the hospital. This also illustrates the passive vs. active immunity distinction: VZIG is passive (borrowed antibodies, short-lived), vaccination is active (own immune response, long-lasting).</div>
+</div>
+</div>
+
+<div class="section" id="s9">
+<h2><span class="sec-num">09</span>Infectious Disease &amp; Epidemiology</h2>
+<p>Every infectious disease requires a chain of infection: reservoir, portal of exit, mode of transmission, portal of entry, and susceptible host. Breaking any link prevents disease spread.</p>
+<h3>Transmission Modes</h3>
+<table class="fact-table">
+<tr><th>Mode</th><th>Description</th><th>Examples</th></tr>
+<tr><td>Direct contact</td><td>Person-to-person</td><td>STIs, staphylococcal skin infections</td></tr>
+<tr><td>Droplet</td><td>Large respiratory droplets</td><td>Influenza, pertussis</td></tr>
+<tr><td>Airborne</td><td>Small suspended particles</td><td>TB, measles, chickenpox</td></tr>
+<tr><td>Fecal-oral</td><td>Contaminated food/water</td><td>Hepatitis A, cholera, norovirus</td></tr>
+<tr><td>Vector-borne</td><td>Arthropod transmission</td><td>Malaria, Lyme, plague</td></tr>
+</table>
+<h3>Virulence Factors</h3>
+<p>Adhesins allow attachment. Capsules inhibit phagocytosis. Exotoxins are secreted proteins: A-B toxins (diphtheria, cholera), membrane-disrupting toxins (hemolysins), and superantigens (TSST causing cytokine storm). Endotoxin (lipid A of LPS) is released when Gram-negative bacteria lyse.</p>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>Exotoxins: secreted proteins, specific effects, can be toxoided, from Gram+ and some Gram-. Endotoxin: lipid A of LPS, general inflammatory effects, cannot be toxoided, only Gram-, heat-stable.</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Breaking the Chain of Infection</div>
+<div class="we-scenario">Three weeks after a nursing home outbreak of influenza, the infection control team reviews what interventions worked and why. Map each intervention to the link in the chain of infection it broke.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Vaccination of staff and residents:</strong> Breaks the "susceptible host" link — vaccinated individuals cannot become infected even if exposed. This is the most upstream intervention.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Isolating symptomatic residents in their rooms:</strong> Breaks the "portal of exit" and "mode of transmission" links — the infected person cannot shed virus to others in common spaces.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Masking healthcare workers around symptomatic patients:</strong> Breaks the "portal of entry" link — masks prevent droplets (large respiratory particles from influenza) from entering the healthcare worker's airways.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Hand hygiene after patient contact:</strong> Breaks the "mode of transmission" link — prevents contact transmission of influenza from contaminated surfaces.</div></div>
+</div>
+<div class="we-answer">✓ Exam principle: every infection control question maps to the chain of infection. Ask yourself: which link is being targeted? Multiple simultaneous interventions are more effective because breaking any single link is sufficient to stop spread.</div>
+</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Exotoxin Mechanism Identification</div>
+<div class="we-scenario">A patient has watery, voluminous, non-bloody diarrhea after eating contaminated rice (Vibrio cholerae). Explain the molecular mechanism step by step.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Toxin type:</strong> Cholera toxin is an A-B toxin. B subunit binds GM1 ganglioside on intestinal epithelial cells. A subunit is internalized and enters the cell.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Molecular sabotage:</strong> A subunit ADP-ribosylates (permanently modifies) the Gs-alpha protein, locking it in the "on" position. Gs-alpha permanently stimulates adenylyl cyclase.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Downstream effects:</strong> Adenylyl cyclase makes massive amounts of cAMP. Elevated cAMP activates protein kinase A, which opens CFTR chloride channels in the epithelium. Cl⁻ floods into the gut lumen.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Why "rice-water" diarrhea:</strong> Chloride movement is followed osmotically by Na⁺ and water. Up to 20 liters per day can be lost. Death from dehydration, not from the bacteria itself — which never invades tissues.</div></div>
+</div>
+<div class="we-answer">✓ Treatment: aggressive oral rehydration (WHO oral rehydration solution). Antibiotics (doxycycline) shorten duration but hydration saves lives. The bacteria never invades — it just hijacks cAMP signaling from the gut lumen.</div>
+</div>
+
+<div class="student-tip"><strong>A-B toxin trick:</strong> Think B = Binding (gets you in the door), A = Active damage (does the actual harm). Other A-B toxins: diphtheria toxin (ADP-ribosylates EF-2, stopping protein synthesis), pertussis toxin (ADP-ribosylates Gi-alpha, blocking inhibitory G proteins), anthrax toxin (adenylyl cyclase directly). The ADP-ribosylation chemistry appears in every major A-B toxin — once you see this pattern, you recognize the whole family.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">Measles is airborne (transmitted by tiny droplet nuclei that remain suspended in air). Influenza spreads by larger respiratory droplets. Why does this difference mean measles requires N95 respirators but influenza only requires surgical masks for healthcare workers?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer">Surgical masks block large respiratory droplets (>5 µm) that fall quickly and only travel ~3–6 feet — sufficient for influenza. Airborne particles from measles are tiny droplet nuclei (<5 µm) that remain suspended in room air for hours and can travel across entire rooms through ventilation systems. A surgical mask cannot filter these tiny particles. N95 respirators are specifically designed to filter ≥95% of airborne particles ≥0.3 µm. This is the same reason tuberculosis (also airborne) requires N95 respirators and negative-pressure isolation rooms to prevent recirculation of contaminated air.</div>
+</div>
+</div>
+
+<div class="section" id="s10">
+<h2><span class="sec-num">10</span>Clinical &amp; Applied Microbiology</h2>
+<h3>Key Pathogens</h3>
+<table class="fact-table">
+<tr><th>Organism</th><th>Key Facts</th><th>Disease(s)</th></tr>
+<tr><td><em>S. aureus</em></td><td>Gram+ cocci clusters; coagulase+; catalase+</td><td>Skin infections, endocarditis, food poisoning, TSS</td></tr>
+<tr><td><em>S. pyogenes</em> (GAS)</td><td>Gram+ chains; beta-hemolytic; bacitracin sensitive</td><td>Pharyngitis, necrotizing fasciitis, rheumatic fever</td></tr>
+<tr><td><em>S. pneumoniae</em></td><td>Gram+ diplococci; alpha-hemolytic; optochin sensitive</td><td>Pneumonia, meningitis, otitis media</td></tr>
+<tr><td><em>E. coli</em></td><td>Gram- rod; facultative anaerobe</td><td>UTI, neonatal meningitis, HUS (O157:H7)</td></tr>
+<tr><td><em>M. tuberculosis</em></td><td>Acid-fast rod; slow growing</td><td>Tuberculosis</td></tr>
+<tr><td><em>C. difficile</em></td><td>Gram+ spore-former; anaerobe</td><td>Antibiotic-associated colitis</td></tr>
+<tr><td><em>P. aeruginosa</em></td><td>Gram- rod; blue-green pigment</td><td>Burn/CF/nosocomial infections</td></tr>
+</table>
+<h3>Diagnostic Methods</h3>
+<p>Microscopy (Gram stain, acid-fast stain) provides rapid preliminary identification. Culture on selective/differential media remains the gold standard. Biochemical tests (catalase, coagulase, oxidase, IMViC) narrow identification. Molecular methods (PCR, 16S rRNA sequencing) provide rapid, specific identification. Kirby-Bauer disk diffusion and broth microdilution (MIC) guide antibiotic selection.</p>
+<div class="callout callout-example"><div class="callout-label">Example</div>Distinguishing Staph from Strep starts with catalase. Staphylococci: catalase-positive (bubbles with H2O2). Streptococci: catalase-negative. Within Staph, coagulase separates <em>S. aureus</em> (positive) from coagulase-negative species like <em>S. epidermidis</em>.</div>
+<h3>Biofilms</h3>
+<p>Structured communities in an extracellular polymeric substance (EPS) matrix attached to surfaces. Bacteria in biofilms are 100-1,000x more resistant to antibiotics. They form on medical devices, teeth, and wounds. Quorum sensing (cell-density-dependent communication using autoinducers) coordinates biofilm formation and virulence.</p>
+<div class="callout callout-key"><div class="callout-label">Key Point</div>The normal microbiota provides colonization resistance by competing with pathogens, produces antimicrobial substances, and trains the immune system. Disrupting it (e.g., broad-spectrum antibiotics) enables opportunistic infections like <em>C. difficile</em> and <em>Candida</em> overgrowth.</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Identifying an Unknown Gram-Positive Coccus</div>
+<div class="we-scenario">A wound culture grows Gram-positive cocci in grape-like clusters. Walk through the biochemical identification tree.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Gram stain + morphology:</strong> Gram-positive cocci in clusters → <em>Staphylococcus</em> species (chains would suggest Streptococcus). Confirm with catalase test.</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Catalase test:</strong> Add H₂O₂ to a colony smear. Bubbles = catalase positive = <em>Staphylococcus</em>. No bubbles = catalase negative = <em>Streptococcus</em> (or <em>Enterococcus</em>).</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Coagulase test (for Staph):</strong> Mix with rabbit plasma. Clot forms = coagulase positive = <em>S. aureus</em> (the dangerous one: abscess-forming, endocarditis, TSS). No clot = coagulase negative = <em>S. epidermidis</em>, <em>S. saprophyticus</em>, or other CoNS.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>If CoNS: novobiocin sensitivity</strong> can distinguish further. <em>S. saprophyticus</em> (UTI in young women) is novobiocin-resistant. <em>S. epidermidis</em> (implant infections) is sensitive.</div></div>
+</div>
+<div class="we-answer">✓ The identification tree: Gram+ cocci clusters → catalase → coagulase → novobiocin. Each test narrows the differential. This same logic applies to any unknown isolate.</div>
+</div>
+
+<div class="worked-example">
+<div class="we-title">Worked Example: Understanding a C. difficile Infection</div>
+<div class="we-scenario">A 70-year-old hospitalized patient completes a 10-day course of clindamycin for pneumonia. Three days later, she develops 8–10 watery stools per day with severe cramping. Stool tests positive for <em>C. difficile</em> toxins. Explain the pathophysiology.</div>
+<div class="we-steps">
+<div class="we-step"><div class="we-step-num">1</div><div class="we-step-text"><strong>Why clindamycin?</strong> Clindamycin (50S inhibitor) is strongly associated with <em>C. difficile</em> colitis because it disrupts colonic flora particularly effectively. <em>C. difficile</em> spores persist in the hospital environment and are highly resistant to alcohol hand sanitizer (alcohol does NOT kill spores — only soap and water physically removes them).</div></div>
+<div class="we-step"><div class="we-step-num">2</div><div class="we-step-text"><strong>Loss of colonization resistance:</strong> Normal gut flora (especially <em>Bacteroides</em>, <em>Bifidobacterium</em>) compete with <em>C. difficile</em> for nutrients and produce substances that inhibit it. When clindamycin kills these competitors, <em>C. difficile</em> spores germinate and proliferate unchecked.</div></div>
+<div class="we-step"><div class="we-step-num">3</div><div class="we-step-text"><strong>Toxin damage:</strong> <em>C. difficile</em> produces Toxin A (enterotoxin, causes fluid secretion) and Toxin B (cytotoxin, destroys colonocytes). Toxin B is more potent and the primary diagnostic target. Together they cause pseudomembranous colitis — a visible pseudomembrane on colonoscopy.</div></div>
+<div class="we-step"><div class="we-step-num">4</div><div class="we-step-text"><strong>Treatment:</strong> Oral vancomycin or fidaxomicin (fidaxomicin preferred to reduce recurrence). Ironically, metronidazole used to be first-line but recurrence rates were high. Fecal microbiota transplant (FMT) is used for recurrent cases to restore normal flora.</div></div>
+</div>
+<div class="we-answer">✓ This case illustrates: antibiotic stewardship matters (clindamycin was broad enough to kill normal flora), spore transmission (contact precautions + soap and water), and the microbiome's protective role. Every piece of the colonization resistance concept is visible in this one case.</div>
+</div>
+
+<div class="callout callout-example"><div class="callout-label">Worked Example: MacConkey Agar Interpretation</div>MacConkey agar selects for Gram-negatives (crystal violet + bile salts kill Gram-positives) and differentiates by lactose fermentation. Pink/red colonies = lactose fermenters (acid turns pH indicator red): <em>E. coli</em>, <em>Klebsiella</em>, <em>Enterobacter</em>. Colorless colonies = non-fermenters: <em>Salmonella</em>, <em>Shigella</em>, <em>Pseudomonas</em>. If a stool culture from a patient with bloody diarrhea grows colorless colonies, you think <em>Salmonella</em> or <em>Shigella</em> first. If pink colonies with metallic green sheen = <em>E. coli</em> on EMB agar. Each selective/differential medium is designed around one or two distinguishing biochemical traits.</div>
+
+<div class="student-tip"><strong>For clinical microbiology exam questions, use this 5-step approach:</strong> (1) Note the patient's immune status. (2) Identify exposure history and geography. (3) Read the Gram stain result carefully. (4) Apply the biochemical test tree. (5) Match to the most likely pathogen before selecting treatment. Rushing to treatment without completing steps 1–4 is the most common reason students pick wrong answers.</div>
+
+<div class="concept-check">
+<div class="cc-label">Concept Check</div>
+<div class="cc-question">A 35-year-old cystic fibrosis patient is hospitalized for a pulmonary exacerbation. Sputum culture grows a Gram-negative rod producing a blue-green pigment. Which organism is this, why is it especially dangerous in CF patients, and what makes it difficult to treat?</div>
+<button class="cc-toggle" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Show Answer</button>
+<div class="cc-answer"><em>Pseudomonas aeruginosa</em>, identified by its characteristic blue-green pigment (pyocyanin). It thrives in CF patients because: (1) the thick mucus in CF airways creates a protected low-oxygen environment that <em>Pseudomonas</em> can colonize, (2) once established, it switches to a mucoid biofilm-producing phenotype that is virtually impossible to eradicate from the airways. It is intrinsically hard to treat because: (1) low outer membrane permeability reduces antibiotic entry, (2) it has potent efflux pumps, (3) it produces AmpC beta-lactamase, (4) biofilms confer 100–1000x resistance. Treatment typically requires two antipseudomonal drugs (combination therapy) to reduce resistance emergence. Once chronic colonization is established in CF, the goal shifts from cure to exacerbation control.</div>
+</div>
+</div>
+
+<div class="tabs-container" id="interactive">
+<div class="tab-buttons">
+<button class="tab-btn active" onclick="switchTab('quiz')">Multiple Choice Quiz</button>
+<button class="tab-btn" onclick="switchTab('flash')">Flashcards</button>
+<button class="tab-btn" onclick="switchTab('short')">Short Answer</button>
+</div>
+<div class="tab-panel active" id="tab-quiz">
+<div class="quiz-controls">
+<select id="quiz-diff"><option value="all">All Difficulties</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select>
+<button onclick="loadQuiz()">Load Questions</button>
+<button onclick="gradeQuiz()">Grade Quiz</button>
+</div>
+<div id="quiz-area"></div>
+<div class="score-display" id="quiz-score"></div>
+</div>
+<div class="tab-panel" id="tab-flash">
+<div class="fc-controls" id="fc-cats"></div>
+<div class="fc-grid" id="fc-grid"></div>
+</div>
+<div class="tab-panel" id="tab-short">
+<div id="sa-area"></div>
+</div>
+</div>
+</div>
+<div class="footer">Microbiology Study Reference &mdash; For educational use</div>
+<script>
+const quizData = [{"diff": "easy", "q": "What is the primary method of reproduction in bacteria?", "choices": ["Mitosis", "Meiosis", "Binary fission", "Budding"], "answer": 2, "explain": "Binary fission is the asexual splitting of one bacterial cell into two identical daughter cells."}, {"diff": "easy", "q": "Which scientist disproved spontaneous generation?", "choices": ["Robert Koch", "Louis Pasteur", "Joseph Lister", "Alexander Fleming"], "answer": 1, "explain": "Pasteur used swan-neck flask experiments to prove microbes come from other microbes, not from non-living matter."}, {"diff": "easy", "q": "Gram-positive bacteria stain which color?", "choices": ["Pink/red", "Green", "Purple/violet", "Yellow"], "answer": 2, "explain": "Gram-positive bacteria retain crystal violet due to their thick peptidoglycan layer."}, {"diff": "easy", "q": "Which structure enables bacterial motility?", "choices": ["Pilus", "Capsule", "Flagellum", "Ribosome"], "answer": 2, "explain": "Flagella are whip-like appendages that rotate to propel bacteria through liquid."}, {"diff": "easy", "q": "Viruses require host cell machinery because they:", "choices": ["Can live independently", "Lack ribosomes and metabolic enzymes", "Have their own organelles", "Perform binary fission"], "answer": 1, "explain": "Viruses lack ribosomes and cannot generate energy or synthesize proteins independently."}, {"diff": "easy", "q": "Autoclaving sterilizes at:", "choices": ["100 C, 1 atm, 30 min", "121 C, 15 psi, 15 min", "72 C, normal pressure, 15 sec", "200 C, 30 psi, 5 min"], "answer": 1, "explain": "Standard autoclaving at 121 C and 15 psi for 15 min kills all microbes including endospores."}, {"diff": "easy", "q": "Penicillin inhibits:", "choices": ["Protein synthesis", "DNA replication", "Cell wall synthesis", "Cell membrane function"], "answer": 2, "explain": "Penicillin inhibits transpeptidase, preventing peptidoglycan cross-linking in bacterial cell walls."}, {"diff": "easy", "q": "The first antibody produced in a primary immune response is:", "choices": ["IgG", "IgA", "IgM", "IgE"], "answer": 2, "explain": "IgM is the first antibody produced; it is a pentamer effective at complement activation."}, {"diff": "easy", "q": "Fungal cell walls are composed of:", "choices": ["Peptidoglycan", "Cellulose", "Chitin", "Keratin"], "answer": 2, "explain": "Chitin is the primary structural component of fungal cell walls."}, {"diff": "easy", "q": "An infection acquired in a hospital is called:", "choices": ["Pandemic", "Endemic", "Nosocomial", "Zoonotic"], "answer": 2, "explain": "Nosocomial (healthcare-associated) infections are acquired during hospitalization."}, {"diff": "easy", "q": "Koch's postulates are used to:", "choices": ["Classify bacteria by shape", "Prove a microbe causes a specific disease", "Measure antibiotic resistance", "Determine oxygen requirements"], "answer": 1, "explain": "Koch's postulates provide four criteria linking a specific microorganism to a specific disease."}, {"diff": "easy", "q": "Endospores are formed by:", "choices": ["Escherichia and Salmonella", "Bacillus and Clostridium", "Staphylococcus and Streptococcus", "Neisseria and Haemophilus"], "answer": 1, "explain": "Bacillus and Clostridium are the major endospore-forming genera."}, {"diff": "easy", "q": "Which is NOT horizontal gene transfer?", "choices": ["Transformation", "Transduction", "Binary fission", "Conjugation"], "answer": 2, "explain": "Binary fission is reproduction. Transformation, transduction, and conjugation are horizontal gene transfer."}, {"diff": "easy", "q": "Normal microbiota are:", "choices": ["All pathogens in the body", "Resident microbes that typically do not cause disease", "Viruses in the blood", "Foreign bacteria only"], "answer": 1, "explain": "Normal microbiota are resident organisms that colonize body surfaces and generally provide benefit."}, {"diff": "easy", "q": "Which domain(s) are prokaryotic?", "choices": ["Eukarya only", "Bacteria and Archaea", "Archaea only", "All three domains"], "answer": 1, "explain": "Both Bacteria and Archaea lack membrane-bound nuclei (prokaryotic)."}, {"diff": "medium", "q": "Facultative anaerobes differ from aerotolerant anaerobes because they:", "choices": ["Die in oxygen", "Only ferment", "Can switch between aerobic and anaerobic metabolism", "Require microaerophilic conditions"], "answer": 2, "explain": "Facultative anaerobes prefer O2 but switch to fermentation without it. Aerotolerant anaerobes only ferment."}, {"diff": "medium", "q": "LPS is found in the:", "choices": ["Gram-positive cell wall", "Gram-negative outer membrane", "Archaeal envelope", "Fungal cell wall"], "answer": 1, "explain": "LPS is in the Gram-negative outer membrane; its lipid A component is endotoxin."}, {"diff": "medium", "q": "Lysogenic conversion is significant because:", "choices": ["It kills all bacteria", "Prophage genes can encode toxins", "It prevents future infection", "It only occurs in eukaryotes"], "answer": 1, "explain": "Prophages can carry toxin genes (diphtheria, cholera, botulinum), altering host virulence."}, {"diff": "medium", "q": "The catalase test distinguishes:", "choices": ["E. coli from Salmonella", "Staphylococcus (+) from Streptococcus (-)", "Gram-positive from Gram-negative", "Fungi from bacteria"], "answer": 1, "explain": "Staphylococci are catalase-positive; streptococci are catalase-negative."}, {"diff": "medium", "q": "Live attenuated vaccines:", "choices": ["Use killed organisms", "Use purified antigens", "Use weakened but living organisms", "Use inactivated toxins"], "answer": 2, "explain": "Live attenuated vaccines (MMR, varicella) use weakened pathogens for strong, long-lasting immunity."}, {"diff": "medium", "q": "The lac operon is induced when:", "choices": ["Glucose present, lactose absent", "Lactose present, glucose absent", "Both present", "Neither present"], "answer": 1, "explain": "Lactose removes the repressor; glucose absence allows cAMP-CAP activation. Both conditions needed."}, {"diff": "medium", "q": "Conjugation requires:", "choices": ["Flagellum", "Capsule", "F pilus (sex pilus)", "Endospore"], "answer": 2, "explain": "The F pilus connects donor and recipient cells for DNA transfer."}, {"diff": "medium", "q": "All complement pathways converge at:", "choices": ["C1", "C3", "C5", "C9"], "answer": 1, "explain": "Classical, lectin, and alternative pathways all converge at C3."}, {"diff": "medium", "q": "C. difficile colitis follows antibiotic use because:", "choices": ["Antibiotics activate C. difficile toxins", "Normal flora are killed, allowing C. difficile overgrowth", "C. difficile is antibiotic-resistant only in hospitals", "Antibiotics weaken intestinal walls"], "answer": 1, "explain": "Broad-spectrum antibiotics kill normal flora, removing competition and allowing C. difficile to proliferate."}, {"diff": "medium", "q": "Superantigens cause disease by:", "choices": ["Blocking protein synthesis", "Destroying membranes", "Non-specifically activating massive T cell numbers", "Inhibiting DNA replication"], "answer": 2, "explain": "Superantigens bridge MHC II and TCR non-specifically, activating up to 20% of T cells and causing cytokine storm."}, {"diff": "medium", "q": "Dimorphic fungi exist as:", "choices": ["Only yeast", "Mold in the cold, yeast in the body", "Yeast in the cold, mold in the body", "Only mold"], "answer": 1, "explain": "Dimorphic fungi grow as mold at 25 C and yeast at 37 C. Mold in the cold, yeast in the beast."}, {"diff": "medium", "q": "TLR4 recognizes:", "choices": ["Flagellin", "dsRNA", "LPS", "Peptidoglycan"], "answer": 2, "explain": "TLR4 detects LPS (endotoxin) on Gram-negative bacteria, triggering innate immune responses."}, {"diff": "medium", "q": "Biofilm bacteria are:", "choices": ["Easier to culture", "More antibiotic-susceptible", "100-1000x more antibiotic-resistant", "Unable to communicate"], "answer": 2, "explain": "The EPS matrix and altered metabolism make biofilm bacteria dramatically more resistant."}, {"diff": "medium", "q": "Generalized transduction differs from specialized in that:", "choices": ["Only generalized uses phage", "Generalized transfers any gene; specialized only near prophage site", "They are identical", "Specialized transfers any gene"], "answer": 1, "explain": "Generalized: random bacterial DNA packaged. Specialized: only genes adjacent to prophage integration site."}, {"diff": "medium", "q": "Prions contain:", "choices": ["DNA only", "RNA only", "No nucleic acid", "Both DNA and RNA"], "answer": 2, "explain": "Prions are entirely misfolded protein with no nucleic acid."}, {"diff": "medium", "q": "An endemic disease is:", "choices": ["Worldwide rapid spread", "Constantly present at baseline levels", "A one-time occurrence", "Vector-transmitted only"], "answer": 1, "explain": "Endemic diseases are always present at expected baseline levels in a population."}, {"diff": "medium", "q": "The Kirby-Bauer test measures:", "choices": ["Bacterial growth rate", "Antibiotic susceptibility via zone of inhibition", "Optimal growth temperature", "Metabolic activity"], "answer": 1, "explain": "Larger zones of inhibition indicate greater susceptibility to that antibiotic."}, {"diff": "medium", "q": "Alpha hemolysis on blood agar appears as:", "choices": ["Clear zone (complete lysis)", "Greenish zone (partial lysis)", "No change", "Blue zone"], "answer": 1, "explain": "Alpha hemolysis partially lyses RBCs, producing a greenish zone. Seen with S. pneumoniae and viridans strep."}, {"diff": "hard", "q": "A patient develops septic shock from Gram-negative bacteremia. The component most responsible is:", "choices": ["Exotoxin A", "Peptidoglycan", "Lipid A of LPS", "Teichoic acid"], "answer": 2, "explain": "Lipid A triggers massive TNF-alpha and IL-1 release, causing vasodilation, hypotension, and septic shock."}, {"diff": "hard", "q": "An Hfr cell differs from F+ because:", "choices": ["It lacks the F factor", "F plasmid is integrated into the chromosome", "It cannot conjugate", "It has multiple F copies"], "answer": 1, "explain": "In Hfr cells, F is integrated into the chromosome. Conjugation transfers chromosomal genes at high frequency."}, {"diff": "hard", "q": "In A-B toxins:", "choices": ["A binds receptor, B is enzymatic", "B binds receptor, A is enzymatic", "Both are enzymatic", "Both bind receptors"], "answer": 1, "explain": "B = Binding subunit. A = Active (enzymatic) subunit that causes damage inside the cell."}, {"diff": "hard", "q": "An asplenic patient is most susceptible to:", "choices": ["Obligate intracellular pathogens", "Encapsulated bacteria (S. pneumoniae, N. meningitidis)", "Fungal infections only", "Viruses exclusively"], "answer": 1, "explain": "The spleen filters encapsulated bacteria. Without it, patients are vulnerable to S. pneumoniae, N. meningitidis, H. influenzae."}, {"diff": "hard", "q": "MRSA resistance is conferred by:", "choices": ["Beta-lactamase alone", "mecA gene encoding PBP2a", "Efflux pumps", "Porin mutations"], "answer": 1, "explain": "mecA produces PBP2a with low affinity for ALL beta-lactams, rendering the entire class ineffective."}, {"diff": "hard", "q": "During class switching from IgM to IgG, what changes?", "choices": ["Variable region", "Constant region of heavy chain", "Light chain", "Antigen-binding site"], "answer": 1, "explain": "Class switching changes only the heavy chain constant region. The variable region (specificity) stays the same."}, {"diff": "hard", "q": "Cholera toxin causes diarrhea by:", "choices": ["Destroying epithelial cells", "Permanently activating Gs protein, raising cAMP", "Inhibiting protein synthesis", "Activating gut T cells"], "answer": 1, "explain": "Cholera toxin ADP-ribosylates Gs alpha, locking adenylyl cyclase on, raising cAMP, causing chloride/water secretion."}, {"diff": "hard", "q": "A tuberculin (PPD) test is which hypersensitivity type?", "choices": ["Type I (immediate)", "Type II (cytotoxic)", "Type III (immune complex)", "Type IV (delayed-type)"], "answer": 3, "explain": "PPD is a Type IV (delayed-type) reaction mediated by T cells, peaking at 48-72 hours."}, {"diff": "hard", "q": "Quorum sensing is:", "choices": ["Antibiotic resistance mechanism", "Cell-density dependent gene regulation via autoinducers", "Horizontal gene transfer type", "Sporulation process"], "answer": 1, "explain": "Autoinducer concentration rises with population density, triggering coordinated gene expression changes."}, {"diff": "hard", "q": "Negative-sense ssRNA viruses must carry their own RdRp because:", "choices": ["Host has no RNA polymerase", "Their genome cannot be directly translated as mRNA", "They need to integrate into host DNA", "They require reverse transcriptase"], "answer": 1, "explain": "Negative-sense RNA is complementary to mRNA and must be transcribed to positive-sense first. Host cells lack RdRp."}, {"diff": "hard", "q": "Fluoroquinolones (ciprofloxacin) inhibit:", "choices": ["30S ribosomal subunit", "Cell membranes", "DNA gyrase and topoisomerase IV", "Folic acid synthesis"], "answer": 2, "explain": "Fluoroquinolones block DNA gyrase (relieves supercoiling) and topoisomerase IV (separates replicated DNA)."}, {"diff": "hard", "q": "A child with HUS after undercooked hamburger likely has:", "choices": ["Salmonella", "Shigella", "E. coli O157:H7", "Campylobacter"], "answer": 2, "explain": "E. coli O157:H7 produces Shiga-like toxin damaging renal endothelium, causing hemolytic anemia, thrombocytopenia, renal failure."}, {"diff": "hard", "q": "Antigenic shift in influenza results from:", "choices": ["Point mutations", "Reassortment of genome segments between strains", "Loss of envelope", "Lysogenic recombination"], "answer": 1, "explain": "Antigenic shift occurs when different strains exchange genome segments (reassortment), producing novel surface antigens. Causes pandemics."}, {"diff": "hard", "q": "Type III secretion systems function as:", "choices": ["Flagellar motors", "Molecular syringes injecting effectors into host cells", "DNA transfer systems", "Quorum sensing receptors"], "answer": 1, "explain": "Type III secretion systems form needle-like structures that inject virulence effectors directly into host cell cytoplasm."}, {"diff": "hard", "q": "Bactericidal vs bacteriostatic matters clinically because:", "choices": ["Bacteriostatic are always preferred", "Bactericidal kill; bacteriostatic inhibit growth requiring immune clearance", "No clinical difference", "Bactericidal cannot cause resistance"], "answer": 1, "explain": "Immunocompromised patients need bactericidal drugs since their immune system cannot clear growth-inhibited bacteria."}];
+const fcData = [{"cat": "Structure", "front": "What is peptidoglycan?", "back": "Polymer of NAG and NAM with amino acid cross-links forming rigid bacterial cell walls. Target of beta-lactams and lysozyme."}, {"cat": "Structure", "front": "Three basic bacterial shapes?", "back": "Cocci (spherical), bacilli (rod-shaped), spirilla/spirochetes (spiral/helical)."}, {"cat": "Structure", "front": "Function of bacterial capsules?", "back": "Extracellular polysaccharide that inhibits phagocytosis, promotes biofilm, and serves as virulence factor."}, {"cat": "Structure", "front": "What is Lipid A?", "back": "Lipid component of LPS in Gram-negative outer membrane. Acts as endotoxin triggering fever, inflammation, septic shock."}, {"cat": "Structure", "front": "What makes endospores resistant?", "back": "Dipicolinic acid + calcium, multiple protein coats, dehydrated core, SASPs protecting DNA. Survive boiling, UV, chemicals."}, {"cat": "Structure", "front": "Pili vs flagella?", "back": "Pili: short, for attachment and conjugation (sex pilus). Flagella: long, for motility powered by proton motive force."}, {"cat": "Structure", "front": "Gram-positive vs Gram-negative wall?", "back": "Gram+: thick peptidoglycan, teichoic acids, no outer membrane (purple). Gram-: thin peptidoglycan, outer membrane with LPS (pink)."}, {"cat": "Genetics", "front": "Three horizontal gene transfer mechanisms?", "back": "Transformation (free DNA uptake), transduction (phage-mediated), conjugation (pilus, direct cell-cell)."}, {"cat": "Genetics", "front": "What is an Hfr cell?", "back": "F plasmid integrated into chromosome. Transfers chromosomal genes at high frequency during conjugation. Rarely transfers entire F."}, {"cat": "Genetics", "front": "Lac operon regulation?", "back": "Inducible. Lactose (as allolactose) removes repressor. Low glucose raises cAMP for CAP activation. Both needed for full expression."}, {"cat": "Genetics", "front": "What is a transposon?", "back": "Mobile genetic element (jumping gene) that moves between DNA locations. Often carries antibiotic resistance genes."}, {"cat": "Genetics", "front": "Generalized vs specialized transduction?", "back": "Generalized: any bacterial gene accidentally packaged in phage. Specialized: only genes near prophage integration site."}, {"cat": "Viruses", "front": "What defines a retrovirus?", "back": "ssRNA virus using reverse transcriptase to make dsDNA that integrates as provirus. HIV is the classic example."}, {"cat": "Viruses", "front": "Baltimore classification?", "back": "Seven groups by genome type: dsDNA, ssDNA, dsRNA, +ssRNA, -ssRNA, ssRNA-RT (retrovirus), dsDNA-RT (hepadnavirus)."}, {"cat": "Viruses", "front": "Antigenic drift vs shift?", "back": "Drift: gradual point mutations (seasonal epidemics). Shift: genome segment reassortment between strains (pandemics)."}, {"cat": "Viruses", "front": "Enveloped vs naked viruses?", "back": "Enveloped: lipid bilayer from host, easier to destroy with detergents. Naked: no envelope, more environmentally resistant."}, {"cat": "Viruses", "front": "What are prions?", "back": "Misfolded protein (PrPSc) with no nucleic acid. Converts normal PrPC. Causes CJD, mad cow, scrapie. Extremely resistant."}, {"cat": "Immunity", "front": "Antibody classes by abundance?", "back": "GAMED: IgG > IgA > IgM > IgE > IgD. But IgM is produced FIRST in primary response."}, {"cat": "Immunity", "front": "Membrane attack complex (MAC)?", "back": "C5b-C9 creates pores in target membranes causing lysis. Part of complement effector function."}, {"cat": "Immunity", "front": "Three complement outcomes?", "back": "Opsonization (C3b), inflammation (C3a/C5a anaphylatoxins), lysis (MAC from C5b-C9). All pathways converge at C3."}, {"cat": "Immunity", "front": "Active vs passive immunity?", "back": "Active: host makes own antibodies (infection/vaccine, long-lasting). Passive: preformed antibodies received (maternal, antiserum, temporary)."}, {"cat": "Immunity", "front": "CD4+ helper T cells do what?", "back": "Recognize antigen on MHC II, secrete cytokines to activate B cells, CD8+ T cells, and macrophages. Coordinate adaptive immunity."}, {"cat": "Immunity", "front": "PAMPs and PRRs?", "back": "PAMPs: conserved microbial structures (LPS, flagellin). PRRs (including TLRs): innate immune receptors that detect PAMPs."}, {"cat": "Immunity", "front": "Type IV hypersensitivity?", "back": "Delayed-type, T cell mediated (not antibodies). Peaks 48-72 hr. Examples: PPD test, contact dermatitis, transplant rejection."}, {"cat": "Clinical", "front": "Staph vs Strep: first test?", "back": "Catalase. Staph: positive (bubbles). Strep: negative. Then coagulase separates S. aureus (+) from CoNS (-)."}, {"cat": "Clinical", "front": "What is MRSA?", "back": "mecA gene encodes PBP2a with low affinity for ALL beta-lactams. Treat with vancomycin, daptomycin, or linezolid."}, {"cat": "Clinical", "front": "Why is Pseudomonas hard to treat?", "back": "Low permeability, efflux pumps, AmpC beta-lactamase, biofilm formation, minimal nutritional needs. Blue-green pyocyanin pigment."}, {"cat": "Clinical", "front": "E. coli O157:H7 causes?", "back": "HUS: Shiga-like toxin damages renal endothelium causing hemolytic anemia, thrombocytopenia, acute kidney failure. From undercooked beef."}, {"cat": "Clinical", "front": "Acid-fast stain is for?", "back": "Mycobacterium (TB, leprosy). Waxy mycolic acid walls resist Gram stain. Acid-fast = red/pink. Non-acid-fast = blue."}, {"cat": "Clinical", "front": "MacConkey agar?", "back": "Selective for Gram-negatives. Differential: lactose fermenters turn pink (E. coli), non-fermenters stay colorless (Salmonella, Shigella)."}, {"cat": "Clinical", "front": "Hemolysis types?", "back": "Alpha: partial, greenish (S. pneumoniae). Beta: complete, clear (S. pyogenes). Gamma: none (Enterococcus)."}, {"cat": "Antibiotics", "front": "'Buy AT 30, CELL at 50'", "back": "30S: Aminoglycosides, Tetracyclines. 50S: Chloramphenicol, Erythromycin (macrolides), Linezolid, cLindamycin."}, {"cat": "Antibiotics", "front": "Beta-lactam resistance mechanisms?", "back": "Beta-lactamase (hydrolyzes ring), altered PBPs (mecA/PBP2a in MRSA), porin mutations (Gram-), efflux pumps."}, {"cat": "Antibiotics", "front": "Sulfonamides + trimethoprim?", "back": "Both block folic acid synthesis at different steps. Sulfonamides: dihydropteroate synthase. TMP: dihydrofolate reductase. Synergistic."}, {"cat": "Antibiotics", "front": "What is MIC?", "back": "Minimum Inhibitory Concentration: lowest antibiotic concentration preventing visible growth. Guides dosing decisions."}, {"cat": "Antibiotics", "front": "Bactericidal vs bacteriostatic?", "back": "Bactericidal kills (beta-lactams, aminoglycosides, fluoroquinolones). Bacteriostatic inhibits growth (tetracyclines, macrolides). Immunocompromised need bactericidal."}, {"cat": "Growth", "front": "Four growth curve phases?", "back": "Lag (adjustment), log/exponential (max division), stationary (growth = death), death/decline (death > growth)."}, {"cat": "Growth", "front": "Five oxygen classifications?", "back": "Obligate aerobe, obligate anaerobe, facultative anaerobe, microaerophile, aerotolerant anaerobe."}, {"cat": "Growth", "front": "IMViC series?", "back": "Indole, Methyl Red, Voges-Proskauer, Citrate. E. coli: ++--. Enterobacter: --++."}, {"cat": "Disease", "front": "Exotoxins vs endotoxin?", "back": "Exotoxins: secreted proteins, specific, toxoidable, Gram+/some Gram-. Endotoxin: lipid A/LPS, general inflammation, not toxoidable, Gram- only, heat-stable."}, {"cat": "Disease", "front": "Chain of infection?", "back": "Reservoir, portal of exit, mode of transmission, portal of entry, susceptible host. Break any link to prevent spread."}, {"cat": "Disease", "front": "What is an opportunistic pathogen?", "back": "Causes disease only in compromised hosts. Examples: Candida, Aspergillus, P. aeruginosa, C. difficile."}, {"cat": "Fungi", "front": "Dimorphic fungi mnemonic?", "back": "Mold in the cold (25 C), yeast in the beast (37 C). Histoplasma, Blastomyces, Coccidioides, Talaromyces, Sporothrix."}];
+const saData = [{"q": "Explain the structural and clinical differences between Gram-positive and Gram-negative bacteria.", "concepts": [{"term": "thick peptidoglycan", "syns": ["thick peptidoglycan", "thick cell wall", "thick murein"], "w": 2}, {"term": "outer membrane", "syns": ["outer membrane"], "w": 2}, {"term": "LPS/endotoxin", "syns": ["LPS", "lipopolysaccharide", "endotoxin", "lipid A"], "w": 3}, {"term": "teichoic acid", "syns": ["teichoic"], "w": 1}, {"term": "stain colors", "syns": ["purple", "violet", "pink", "crystal violet", "safranin"], "w": 2}, {"term": "antibiotic resistance", "syns": ["antibiotic", "resistance", "permeability"], "w": 2}], "model": "Gram-positive bacteria have thick peptidoglycan (20-80 nm), retain crystal violet (purple), and contain teichoic acids but lack an outer membrane. Gram-negative bacteria have thin peptidoglycan (1-3 nm), stain pink with safranin, and possess an outer membrane with LPS. Lipid A of LPS acts as endotoxin causing septic shock. The outer membrane also makes Gram-negatives more antibiotic-resistant."}, {"q": "Describe three mechanisms of horizontal gene transfer and why conjugation is most clinically significant.", "concepts": [{"term": "transformation", "syns": ["transformation", "free DNA", "competent"], "w": 2}, {"term": "transduction", "syns": ["transduction", "phage", "bacteriophage"], "w": 2}, {"term": "conjugation", "syns": ["conjugation", "pilus", "F plasmid", "sex pilus"], "w": 2}, {"term": "R plasmid", "syns": ["plasmid", "R plasmid", "resistance plasmid", "R factor"], "w": 2}, {"term": "multidrug resistance", "syns": ["multiple resistance", "multidrug", "MDR", "many genes"], "w": 2}], "model": "Transformation: uptake of free DNA by competent bacteria. Transduction: phage accidentally packages host DNA. Conjugation: direct transfer via sex pilus using F plasmid. Conjugation is most significant because it transfers large DNA segments including R plasmids with multiple resistance genes between even distantly related bacteria."}, {"q": "Compare the lytic and lysogenic cycles and explain lysogenic conversion.", "concepts": [{"term": "lytic cycle", "syns": ["lytic", "lysis", "burst", "release"], "w": 2}, {"term": "lysogenic/prophage", "syns": ["lysogenic", "prophage", "integrate"], "w": 2}, {"term": "lysogenic conversion", "syns": ["lysogenic conversion", "toxin gene", "phage-encoded"], "w": 3}, {"term": "examples", "syns": ["diphtheria", "botulinum", "cholera", "shiga"], "w": 2}], "model": "Lytic: phage takes over host, replicates, lyses cell. Lysogenic: phage DNA integrates as prophage, replicates with host until triggered. Lysogenic conversion: prophage carries virulence genes altering pathogenicity. Examples: diphtheria toxin, botulinum toxin, cholera toxin, Shiga toxin."}, {"q": "Explain the complement system: three pathways and three effector functions.", "concepts": [{"term": "classical pathway", "syns": ["classical", "antibody-antigen"], "w": 2}, {"term": "lectin pathway", "syns": ["lectin", "mannose", "MBL"], "w": 1}, {"term": "alternative pathway", "syns": ["alternative", "spontaneous"], "w": 1}, {"term": "C3 convergence", "syns": ["C3", "converge"], "w": 2}, {"term": "opsonization", "syns": ["opsonization", "C3b", "phagocytosis"], "w": 2}, {"term": "MAC/lysis", "syns": ["MAC", "membrane attack", "C5b", "lysis", "pore"], "w": 2}, {"term": "inflammation", "syns": ["inflammation", "C3a", "C5a", "anaphylatoxin"], "w": 2}], "model": "Three pathways: classical (antibody-antigen), lectin (mannose-binding lectin), alternative (spontaneous C3 hydrolysis). All converge at C3. Three functions: opsonization (C3b coats pathogens), MAC lysis (C5b-C9 pores), inflammation (C3a/C5a recruit immune cells)."}, {"q": "Describe four mechanisms of antibiotic resistance with an example of each.", "concepts": [{"term": "enzymatic inactivation", "syns": ["enzyme", "inactivat", "beta-lactamase", "destroy", "hydroly"], "w": 2}, {"term": "target modification", "syns": ["target", "altered", "PBP", "modified", "PBP2a", "mecA"], "w": 2}, {"term": "decreased permeability", "syns": ["permeability", "porin", "decreased uptake"], "w": 2}, {"term": "efflux pumps", "syns": ["efflux", "pump"], "w": 2}, {"term": "specific examples", "syns": ["MRSA", "penicillin", "tetracycline", "carbapenem"], "w": 2}], "model": "(1) Enzymatic inactivation: beta-lactamases destroy penicillin's beta-lactam ring. (2) Target modification: MRSA's PBP2a (mecA gene) has low affinity for beta-lactams. (3) Decreased permeability: porin mutations prevent carbapenem entry in Pseudomonas. (4) Efflux pumps: actively expel tetracyclines from the cell."}, {"q": "Differentiate exotoxins and endotoxin.", "concepts": [{"term": "exotoxin = protein", "syns": ["protein", "polypeptide", "secreted"], "w": 2}, {"term": "endotoxin = lipid A", "syns": ["lipid A", "LPS", "lipopolysaccharide"], "w": 2}, {"term": "source organisms", "syns": ["Gram-positive", "Gram-negative", "Gram+", "Gram-"], "w": 2}, {"term": "specific vs general", "syns": ["specific", "general", "systemic", "fever", "shock"], "w": 2}, {"term": "toxoid", "syns": ["toxoid", "inactivat", "cannot be toxoid"], "w": 2}, {"term": "heat stability", "syns": ["heat stable", "heat labile"], "w": 1}], "model": "Exotoxins: secreted proteins from Gram+ and some Gram-, specific mechanisms, heat-labile, high potency, can be toxoided (tetanus, diphtheria vaccines). Endotoxin: lipid A of LPS from Gram- only, released on lysis, causes general fever/inflammation/shock via TNF/IL-1, heat-stable, cannot be toxoided."}, {"q": "Compare innate and adaptive immunity: timing, specificity, memory, and key cells.", "concepts": [{"term": "innate fast/non-specific", "syns": ["fast", "rapid", "non-specific", "immediate"], "w": 2}, {"term": "adaptive slow/specific", "syns": ["slow", "specific", "targeted", "days"], "w": 2}, {"term": "memory", "syns": ["memory", "remember", "secondary response"], "w": 2}, {"term": "innate cells", "syns": ["neutrophil", "macrophage", "NK", "natural killer", "phagocyt"], "w": 2}, {"term": "adaptive cells", "syns": ["B cell", "T cell", "lymphocyte", "antibod", "CD4", "CD8"], "w": 2}, {"term": "TLR/PAMPs", "syns": ["TLR", "toll-like", "PAMP", "pattern"], "w": 1}], "model": "Innate: immediate, non-specific, no memory. Uses barriers, phagocytes (neutrophils, macrophages), NK cells, complement, TLRs recognizing PAMPs. Adaptive: days to develop, highly specific, creates memory. B cells make antibodies (humoral), CD4+ helper T cells coordinate, CD8+ cytotoxic T cells kill infected cells."}, {"q": "Explain Koch's postulates and situations where they cannot be fulfilled.", "concepts": [{"term": "found in disease", "syns": ["found in disease", "present in disease", "absent in healthy"], "w": 2}, {"term": "pure culture", "syns": ["isolated", "pure culture", "grown"], "w": 2}, {"term": "cause disease", "syns": ["cause disease", "inoculate", "healthy host"], "w": 2}, {"term": "re-isolate", "syns": ["re-isolat", "reisolat", "recover", "same organism"], "w": 2}, {"term": "limitations", "syns": ["cannot culture", "unculturable", "ethical", "no animal model", "carrier", "asymptomatic"], "w": 2}], "model": "Koch's postulates: (1) microbe in all diseased, not healthy, (2) isolated in pure culture, (3) causes disease in healthy host, (4) re-isolated and confirmed same. Cannot fulfill when: organism is unculturable (T. pallidum), no animal model exists, ethics prevent human experiments, healthy carriers exist, or multiple pathogens are needed."}, {"q": "Describe biofilms, their clinical significance, and the role of quorum sensing.", "concepts": [{"term": "EPS/matrix", "syns": ["community", "EPS", "extracellular", "matrix", "surface"], "w": 2}, {"term": "antibiotic resistance", "syns": ["resistant", "100", "1000", "antibiotic", "difficult"], "w": 3}, {"term": "medical devices", "syns": ["catheter", "prosthetic", "device", "implant", "heart valve"], "w": 2}, {"term": "quorum sensing", "syns": ["quorum", "autoinducer", "cell density", "signaling"], "w": 2}], "model": "Biofilms: structured bacterial communities in EPS matrix on surfaces. 100-1000x more antibiotic-resistant. Form on catheters, prosthetics, heart valves, teeth. Quorum sensing: cell-density communication via autoinducers coordinates biofilm formation and virulence as population grows."}, {"q": "Name the five major antibiotic mechanisms of action with an example drug for each.", "concepts": [{"term": "cell wall", "syns": ["cell wall", "peptidoglycan", "penicillin", "cephalosporin", "beta-lactam", "vancomycin"], "w": 2}, {"term": "cell membrane", "syns": ["membrane", "polymyxin", "daptomycin"], "w": 2}, {"term": "protein synthesis", "syns": ["protein synthesis", "ribosome", "30S", "50S", "tetracycline", "aminoglycoside", "macrolide", "erythromycin"], "w": 2}, {"term": "nucleic acid", "syns": ["nucleic acid", "DNA", "RNA", "fluoroquinolone", "ciprofloxacin", "rifampin", "gyrase"], "w": 2}, {"term": "metabolic pathway", "syns": ["metabolic", "folic acid", "folate", "sulfonamide", "trimethoprim"], "w": 2}], "model": "(1) Cell wall synthesis: penicillin, vancomycin. (2) Cell membrane: polymyxins, daptomycin. (3) Protein synthesis: 30S (tetracyclines, aminoglycosides), 50S (macrolides, chloramphenicol, linezolid). (4) Nucleic acid synthesis: fluoroquinolones (DNA gyrase), rifampin (RNA polymerase). (5) Metabolic pathways: sulfonamides + trimethoprim (folic acid synthesis)."}, {"q": "A patient with Gram-negative bacteremia develops fever, hypotension, and DIC. Explain the pathophysiology.", "concepts": [{"term": "LPS release", "syns": ["LPS", "endotoxin", "lipid A", "lipopolysaccharide"], "w": 3}, {"term": "cytokine storm", "syns": ["cytokine", "TNF", "IL-1", "IL-6", "inflammatory"], "w": 3}, {"term": "sepsis/shock", "syns": ["sepsis", "septic shock", "systemic"], "w": 2}, {"term": "vasodilation", "syns": ["vasodilation", "hypotension", "blood pressure"], "w": 2}, {"term": "DIC", "syns": ["DIC", "coagulation", "clotting"], "w": 2}, {"term": "fever", "syns": ["fever", "pyrogenic", "prostaglandin"], "w": 1}], "model": "Gram-negative bacteria release LPS on lysis. Lipid A binds TLR4 on macrophages, triggering massive TNF-alpha, IL-1, IL-6 release (cytokine storm). This causes systemic vasodilation (hypotension), increased permeability, fever (via PGE2), and activation of coagulation cascade throughout vasculature (DIC). DIC consumes clotting factors causing both microthrombi and bleeding. This is septic shock progressing to multi-organ failure."}];
+
+function switchTab(tab){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  var idx=tab==='quiz'?0:tab==='flash'?1:2;
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+  document.querySelectorAll('.tab-panel')[idx].classList.add('active');
+}
+let activeQuiz=[];
+function loadQuiz(){
+  var diff=document.getElementById('quiz-diff').value;
+  var pool=diff==='all'?[...quizData]:quizData.filter(function(q){return q.diff===diff;});
+  pool.sort(function(){return Math.random()-0.5;});
+  activeQuiz=pool;
+  var area=document.getElementById('quiz-area');
+  document.getElementById('quiz-score').style.display='none';
+  var h='';
+  pool.forEach(function(q,i){
+    h+='<div class="q-card" id="qc'+i+'"><p class="q-text"><span class="q-num">Q'+(i+1)+'</span>'+q.q+'</p>';
+    q.choices.forEach(function(c,j){
+      h+='<label><input type="radio" name="q'+i+'" value="'+j+'">'+c+'</label>';
+    });
+    h+='<div class="q-feedback" id="qf'+i+'"></div></div>';
+  });
+  area.innerHTML=h;
+}
+function gradeQuiz(){
+  var correct=0;
+  activeQuiz.forEach(function(q,i){
+    var sel=document.querySelector('input[name="q'+i+'"]:checked');
+    var fb=document.getElementById('qf'+i);
+    if(sel&&parseInt(sel.value)===q.answer){
+      correct++;fb.className='q-feedback correct';
+      fb.innerHTML='<strong>Correct!</strong> '+q.explain;
+    } else {
+      fb.className='q-feedback incorrect';
+      fb.innerHTML='<strong>Incorrect.</strong> The answer is: '+q.choices[q.answer]+'. '+q.explain;
+    }
+    fb.style.display='block';
+  });
+  var sd=document.getElementById('quiz-score');
+  sd.textContent='Score: '+correct+' / '+activeQuiz.length+' ('+Math.round(100*correct/activeQuiz.length)+'%)';
+  sd.style.display='block';
+}
+function initFlashcards(){
+  var cats=[];fcData.forEach(function(f){if(cats.indexOf(f.cat)===-1)cats.push(f.cat);});
+  var cc=document.getElementById('fc-cats');
+  var h='<button class="fc-cat-btn active" onclick="filterFC(\'all\')">All</button>';
+  cats.forEach(function(c){h+='<button class="fc-cat-btn" onclick="filterFC(\''+c+'\')">'+c+'</button>';});
+  cc.innerHTML=h;
+  renderFC('all');
+}
+function filterFC(cat){
+  document.querySelectorAll('.fc-cat-btn').forEach(function(b){
+    b.classList.toggle('active',b.textContent===cat||(cat==='all'&&b.textContent==='All'));
+  });
+  renderFC(cat);
+}
+function renderFC(cat){
+  var pool=cat==='all'?fcData:fcData.filter(function(f){return f.cat===cat;});
+  var grid=document.getElementById('fc-grid');
+  var h='';
+  pool.forEach(function(f){
+    h+='<div class="fc-card" onclick="this.classList.toggle(\'flipped\')"><div class="fc-inner"><div class="fc-front"><span class="fc-tag">'+f.cat+'</span><div>'+f.front+'</div></div><div class="fc-back"><span class="fc-tag">'+f.cat+'</span><div>'+f.back+'</div></div></div></div>';
+  });
+  grid.innerHTML=h;
+}
+function initSA(){
+  var area=document.getElementById('sa-area');
+  var h='';
+  saData.forEach(function(s,i){
+    h+='<div class="sa-card"><p class="sa-q"><span class="q-num">SA'+(i+1)+'</span>'+s.q+'</p><textarea id="sa-input-'+i+'" placeholder="Type your answer here..."></textarea><button onclick="gradeSA('+i+')">Check Answer</button><div class="sa-result" id="sa-result-'+i+'"></div></div>';
+  });
+  area.innerHTML=h;
+}
+function gradeSA(idx){
+  var s=saData[idx];
+  var ans=document.getElementById('sa-input-'+idx).value.toLowerCase();
+  var res=document.getElementById('sa-result-'+idx);
+  if(!ans.trim()){res.innerHTML='<p style="color:#c0392b;">Please type an answer first.</p>';res.style.display='block';return;}
+  var totalW=0,earnedW=0,tags='';
+  s.concepts.forEach(function(c){
+    totalW+=c.w;
+    var found=c.syns.some(function(syn){return ans.indexOf(syn.toLowerCase())!==-1;});
+    if(found){earnedW+=c.w;tags+='<span class="sa-concept-tag hit">'+c.term+'</span>';}
+    else{tags+='<span class="sa-concept-tag miss">'+c.term+'</span>';}
+  });
+  var words=ans.split(/\s+/).length;
+  var bonus=words>120?0.08:words>80?0.05:words>40?0.03:0;
+  var pct=Math.min(100,Math.round((earnedW/totalW)*100+bonus*100));
+  var color=pct>=80?'#0d7c4a':pct>=50?'#d4a017':'#c0392b';
+  var h='<div class="sa-bar-container"><div class="sa-bar" style="width:'+pct+'%;background:'+color+';"></div></div>';
+  h+='<p style="font-weight:700;color:'+color+';">'+pct+'%</p>';
+  h+='<div class="sa-concepts">'+tags+'</div>';
+  h+='<button class="sa-toggle-model" onclick="var m=document.getElementById(\'sa-model-'+idx+'\');m.style.display=m.style.display===\'none\'?\'block\':\'none\';">Show/Hide Model Answer</button>';
+  h+='<div class="sa-model" id="sa-model-'+idx+'">'+s.model+'</div>';
+  res.innerHTML=h;
+  res.style.display='block';
+}
+loadQuiz();initFlashcards();initSA();
+</script>
+</body>
+</html>
